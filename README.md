@@ -1,5 +1,7 @@
 # ZTF Practice — Zalo Tech Fresher Mock Exam Platform
 
+**🇻🇳 Tiếng Việt** · [🇬🇧 English](./README.en.md)
+
 Một web app luyện thi offline cho vòng Entry Test của chương trình **Zalo Tech Fresher** — gồm 2 phần đề thi mô phỏng đúng format thật:
 
 - **Technical Practice** — 100 câu / 60 phút / English — DSA, OOP, Networking, Database, OS, AI/ML
