@@ -1,0 +1,444 @@
+{
+  "id": "za-002",
+  "type": "za",
+  "title": "Zalo Aptitude Practice #2",
+  "language": "vi",
+  "durationMinutes": 70,
+  "totalQuestions": 30,
+  "passingScore": 70,
+  "createdAt": "2026-05-26",
+  "topics": [
+    "Suy luận số học",
+    "Suy luận logic",
+    "Bài toán đố",
+    "Tư duy không gian",
+    "Sắp xếp & ràng buộc",
+    "Đọc hiểu biểu đồ",
+    "Phân tích quan hệ"
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "topic": "Suy luận số học",
+      "type": "single",
+      "prompt": "Số tiếp theo trong dãy: 1, 1, 2, 3, 5, 8, 13, ?",
+      "options": [
+        { "id": "a", "text": "18" },
+        { "id": "b", "text": "20" },
+        { "id": "c", "text": "21" },
+        { "id": "d", "text": "24" }
+      ],
+      "correct": ["c"],
+      "explanation": "Đây là dãy Fibonacci: mỗi số bằng tổng hai số liền trước nó. Cụ thể: 5+8=13 và 8+13=21. (a) 18 là kết quả cộng nhầm 5+13. (b) 20 không theo quy luật nào. (d) 24 là kết quả nhân nhầm 13×2 trừ đi gì đó."
+    },
+    {
+      "id": "q2",
+      "topic": "Suy luận số học",
+      "type": "single",
+      "prompt": "Số tiếp theo trong dãy: 3, −6, 12, −24, 48, ?",
+      "options": [
+        { "id": "a", "text": "72" },
+        { "id": "b", "text": "−72" },
+        { "id": "c", "text": "96" },
+        { "id": "d", "text": "−96" }
+      ],
+      "correct": ["d"],
+      "explanation": "Mỗi số nhân với −2 để ra số tiếp theo: 3×(−2)=−6, −6×(−2)=12, ..., 48×(−2)=−96. Tỉ số công là −2 nên số tiếp theo phải âm — loại (a) và (c). 48×2=96 nên đáp án đúng là −96, không phải −72."
+    },
+    {
+      "id": "q3",
+      "topic": "Suy luận số học",
+      "type": "single",
+      "prompt": "Số tiếp theo trong dãy: 81, 27, 9, 3, ?",
+      "options": [
+        { "id": "a", "text": "0" },
+        { "id": "b", "text": "1" },
+        { "id": "c", "text": "2" },
+        { "id": "d", "text": "−1" }
+      ],
+      "correct": ["b"],
+      "explanation": "Mỗi số bằng số trước chia cho 3: 81÷3=27, 27÷3=9, 9÷3=3, 3÷3=1. Đây là cấp số nhân với công bội 1/3. (a) 0 sẽ đúng nếu quy luật là trừ đi bội 3 liên tiếp, nhưng không phải. (c) và (d) không thỏa mãn phép chia 3."
+    },
+    {
+      "id": "q4",
+      "topic": "Suy luận số học",
+      "type": "single",
+      "prompt": "Số tiếp theo trong dãy: 100, 91, 83, 76, 70, ?",
+      "options": [
+        { "id": "a", "text": "64" },
+        { "id": "b", "text": "65" },
+        { "id": "c", "text": "66" },
+        { "id": "d", "text": "68" }
+      ],
+      "correct": ["b"],
+      "explanation": "Hiệu giữa các số liên tiếp giảm dần 1 đơn vị: 100−91=9, 91−83=8, 83−76=7, 76−70=6. Tiếp theo hiệu là 5, nên số cần tìm = 70−5=65. (a) 64 dùng hiệu 6 cố định không đổi. (d) 68 dùng hiệu 2 — sai hoàn toàn."
+    },
+    {
+      "id": "q5",
+      "topic": "Suy luận số học",
+      "type": "single",
+      "prompt": "Tìm số còn thiếu trong dãy: 2, 6, 18, ?, 162, 486",
+      "options": [
+        { "id": "a", "text": "36" },
+        { "id": "b", "text": "48" },
+        { "id": "c", "text": "54" },
+        { "id": "d", "text": "72" }
+      ],
+      "correct": ["c"],
+      "explanation": "Mỗi số nhân 3 ra số tiếp: 2×3=6, 6×3=18, 18×3=54, 54×3=162, 162×3=486. Đây là cấp số nhân công bội 3. (a) 36 là nhầm nhân 2 từ 18. (b) và (d) không tuân theo công bội 3. Kiểm tra ngược: 162÷3=54 xác nhận đáp án."
+    },
+    {
+      "id": "q6",
+      "topic": "Suy luận logic",
+      "type": "single",
+      "prompt": "Mọi kỹ sư phần mềm đều biết lập trình. Lan biết lập trình. Kết luận nào SAI?",
+      "options": [
+        { "id": "a", "text": "Lan có thể là kỹ sư phần mềm." },
+        { "id": "b", "text": "Lan chắc chắn là kỹ sư phần mềm." },
+        { "id": "c", "text": "Biết lập trình là điều kiện cần để trở thành kỹ sư phần mềm." },
+        { "id": "d", "text": "Có người biết lập trình nhưng không phải kỹ sư phần mềm." }
+      ],
+      "correct": ["b"],
+      "explanation": "Tiền đề 'mọi kỹ sư phần mềm đều biết lập trình' chỉ đi theo chiều: kỹ sư → lập trình, không phải ngược lại. Lan biết lập trình KHÔNG đủ để kết luận Lan là kỹ sư phần mềm — đây là lỗi khẳng định hệ quả. (a) đúng vì không loại trừ khả năng đó. (c) đúng vì biết lập trình là cần nhưng chưa đủ. (d) đúng vì nhiều người khác cũng biết lập trình."
+    },
+    {
+      "id": "q7",
+      "topic": "Suy luận logic",
+      "type": "single",
+      "prompt": "Mệnh đề: 'Nếu trời mưa to thì đường bị ngập.' Hôm nay đường không bị ngập. Điều gì chắc chắn đúng?",
+      "options": [
+        { "id": "a", "text": "Hôm nay trời không mưa to." },
+        { "id": "b", "text": "Hôm nay trời có mưa nhỏ." },
+        { "id": "c", "text": "Trời mưa to là nguyên nhân duy nhất gây ngập đường." },
+        { "id": "d", "text": "Đường không bao giờ bị ngập vào mùa khô." }
+      ],
+      "correct": ["a"],
+      "explanation": "Áp dụng quy tắc đối ngẫu (modus tollens): 'Nếu mưa to → ngập', đối ngẫu là 'Nếu không ngập → không mưa to'. Đường không ngập, nên chắc chắn hôm nay không mưa to. (b) suy diễn thêm không có cơ sở. (c) và (d) là kết luận vượt ngoài thông tin đã cho."
+    },
+    {
+      "id": "q8",
+      "topic": "Suy luận logic",
+      "type": "single",
+      "prompt": "Trong một nhóm học sinh: tất cả học sinh giỏi Toán đều tham gia đội tuyển. Một số học sinh tham gia đội tuyển nhưng không giỏi Văn. Minh không tham gia đội tuyển. Điều gì chắc chắn suy ra về Minh?",
+      "options": [
+        { "id": "a", "text": "Minh không giỏi Toán." },
+        { "id": "b", "text": "Minh giỏi Văn." },
+        { "id": "c", "text": "Minh không giỏi cả Toán lẫn Văn." },
+        { "id": "d", "text": "Minh lười học." }
+      ],
+      "correct": ["a"],
+      "explanation": "Tiền đề: 'giỏi Toán → đội tuyển'. Đối ngẫu: 'không đội tuyển → không giỏi Toán'. Minh không tham gia đội tuyển → Minh không giỏi Toán. (b) Không có thông tin về mối liên hệ giữa đội tuyển và Văn đủ để kết luận. (c) Không thể suy về Văn. (d) Hoàn toàn ngoài phạm vi."
+    },
+    {
+      "id": "q9",
+      "topic": "Suy luận logic",
+      "type": "multi",
+      "prompt": "Mệnh đề P: 'Hễ hàng bị lỗi thì khách hàng được hoàn tiền.' Phát biểu nào tương đương P? (Chọn tất cả phương án đúng)",
+      "options": [
+        { "id": "a", "text": "Nếu khách hàng không được hoàn tiền thì hàng không bị lỗi." },
+        { "id": "b", "text": "Nếu hàng không bị lỗi thì khách hàng không được hoàn tiền." },
+        { "id": "c", "text": "Không tồn tại trường hợp hàng bị lỗi mà khách không được hoàn tiền." },
+        { "id": "d", "text": "Khách hàng được hoàn tiền khi và chỉ khi hàng bị lỗi." }
+      ],
+      "correct": ["a", "c"],
+      "explanation": "P: 'Lỗi → Hoàn tiền'. Đối ngẫu tương đương: 'Không hoàn tiền → Không lỗi' — đúng với (a). (c) là cách nói tương đương: không tồn tại ngoại lệ phá vỡ P. (b) là phủ định chiều — sai vì có thể hoàn tiền vì lý do khác. (d) là biconditional (hai chiều) mạnh hơn P — không tương đương."
+    },
+    {
+      "id": "q10",
+      "topic": "Suy luận logic",
+      "type": "single",
+      "prompt": "Ba mệnh đề: (1) Nếu A thì B. (2) Nếu B thì C. (3) Không có C. Điều gì chắc chắn suy ra?",
+      "options": [
+        { "id": "a", "text": "Có A." },
+        { "id": "b", "text": "Không có A." },
+        { "id": "c", "text": "Có B nhưng không có C." },
+        { "id": "d", "text": "A và B đều có thể có hoặc không." }
+      ],
+      "correct": ["b"],
+      "explanation": "Từ (2) và (3): 'B→C' + 'không C' → 'không B' (modus tollens). Từ (1) và 'không B': 'A→B' + 'không B' → 'không A' (modus tollens). Chuỗi modus tollens hai bước: không C → không B → không A. (c) sai vì đã chứng minh không có B. (d) sai vì ta có thể kết luận chắc chắn."
+    },
+    {
+      "id": "q11",
+      "topic": "Bài toán đố",
+      "type": "single",
+      "prompt": "Một cửa hàng giảm giá 30% một chiếc áo, rồi tiếp tục giảm thêm 20% trên mức giá đã giảm. Tổng mức giảm so với giá gốc là bao nhiêu phần trăm?",
+      "options": [
+        { "id": "a", "text": "44%" },
+        { "id": "b", "text": "46%" },
+        { "id": "c", "text": "50%" },
+        { "id": "d", "text": "56%" }
+      ],
+      "correct": ["a"],
+      "explanation": "Sau giảm 30%, giá còn lại = 70% giá gốc. Sau giảm thêm 20% trên giá đó: 70%×80% = 56% giá gốc. Vậy tổng mức giảm = 100%−56% = 44%. Lỗi phổ biến: cộng thẳng 30%+20%=50% (đáp án c), nhưng lần hai giảm tính trên giá đã hạ, không phải giá gốc."
+    },
+    {
+      "id": "q12",
+      "topic": "Bài toán đố",
+      "type": "single",
+      "prompt": "Minh gửi tiết kiệm 10 triệu đồng với lãi suất đơn 8% mỗi năm. Sau 3 năm Minh rút hết. Tổng số tiền Minh nhận được là bao nhiêu?",
+      "options": [
+        { "id": "a", "text": "10,8 triệu đồng" },
+        { "id": "b", "text": "12,0 triệu đồng" },
+        { "id": "c", "text": "12,4 triệu đồng" },
+        { "id": "d", "text": "12,597 triệu đồng" }
+      ],
+      "correct": ["c"],
+      "explanation": "Lãi suất đơn: lãi mỗi năm = 10 × 8% = 0,8 triệu. Sau 3 năm: tổng lãi = 0,8 × 3 = 2,4 triệu. Tổng tiền nhận = 10 + 2,4 = 12,4 triệu. (a) 10,8 triệu là lãi chỉ 1 năm. (b) 12,0 triệu ứng với lãi 2 năm. (d) là kết quả của lãi kép (8%/năm, 3 năm)."
+    },
+    {
+      "id": "q13",
+      "topic": "Bài toán đố",
+      "type": "single",
+      "prompt": "Ba người An, Bình, Cường cùng nhận làm một dự án. An một mình hoàn thành trong 12 ngày, Bình trong 18 ngày, Cường trong 9 ngày. Nếu cả ba cùng làm từ đầu, dự án hoàn thành sau bao nhiêu ngày?",
+      "options": [
+        { "id": "a", "text": "3 ngày" },
+        { "id": "b", "text": "4 ngày" },
+        { "id": "c", "text": "5 ngày" },
+        { "id": "d", "text": "6 ngày" }
+      ],
+      "correct": ["b"],
+      "explanation": "Năng suất mỗi ngày: An = 1/12, Bình = 1/18, Cường = 1/9. Tổng = 3/36 + 2/36 + 4/36 = 9/36 = 1/4 dự án/ngày. Thời gian hoàn thành = 1 ÷ (1/4) = 4 ngày. (a) 3 ngày là nếu chỉ tính năng suất An+Cường. (c) và (d) do tính tổng năng suất sai."
+    },
+    {
+      "id": "q14",
+      "topic": "Bài toán đố",
+      "type": "single",
+      "prompt": "Một xe máy đi từ A đến B với vận tốc 45 km/h mất 2 giờ. Hỏi xe đi ngược từ B về A với vận tốc 60 km/h mất bao lâu?",
+      "options": [
+        { "id": "a", "text": "1 giờ" },
+        { "id": "b", "text": "1 giờ 30 phút" },
+        { "id": "c", "text": "1 giờ 45 phút" },
+        { "id": "d", "text": "2 giờ 15 phút" }
+      ],
+      "correct": ["b"],
+      "explanation": "Quãng đường AB = 45 × 2 = 90 km. Đi từ B về A với 60 km/h: thời gian = 90 ÷ 60 = 1,5 giờ = 1 giờ 30 phút. (a) 1 giờ cần vận tốc 90 km/h. (c) và (d) không phù hợp với quãng đường 90 km và vận tốc 60 km/h."
+    },
+    {
+      "id": "q15",
+      "topic": "Bài toán đố",
+      "type": "single",
+      "prompt": "Một cửa hàng nhập 200 sản phẩm với giá vốn 50.000 đồng/sản phẩm. Cửa hàng bán được 160 sản phẩm với giá 75.000 đồng/sản phẩm, 40 sản phẩm còn lại bán thanh lý với giá 40.000 đồng/sản phẩm. Tổng lợi nhuận là bao nhiêu?",
+      "options": [
+        { "id": "a", "text": "2.400.000 đồng" },
+        { "id": "b", "text": "3.200.000 đồng" },
+        { "id": "c", "text": "3.600.000 đồng" },
+        { "id": "d", "text": "4.000.000 đồng" }
+      ],
+      "correct": ["c"],
+      "explanation": "Tổng vốn = 200 × 50.000 = 10.000.000 đồng. Doanh thu bán thường = 160 × 75.000 = 12.000.000 đồng. Doanh thu thanh lý = 40 × 40.000 = 1.600.000 đồng. Tổng doanh thu = 13.600.000 đồng. Lợi nhuận = 13.600.000 − 10.000.000 = 3.600.000 đồng."
+    },
+    {
+      "id": "q16",
+      "topic": "Bài toán đố",
+      "type": "single",
+      "prompt": "Hiện tại, tuổi anh gấp 3 lần tuổi em. Sau 8 năm, tuổi anh sẽ gấp đúng 2 lần tuổi em. Hiện tại anh bao nhiêu tuổi?",
+      "options": [
+        { "id": "a", "text": "16 tuổi" },
+        { "id": "b", "text": "18 tuổi" },
+        { "id": "c", "text": "20 tuổi" },
+        { "id": "d", "text": "24 tuổi" }
+      ],
+      "correct": ["d"],
+      "explanation": "Đặt tuổi em = x, tuổi anh = 3x. Sau 8 năm: anh = 3x+8, em = x+8. Điều kiện: 3x+8 = 2(x+8) → 3x+8 = 2x+16 → x = 8. Tuổi anh hiện tại = 3×8 = 24. Kiểm tra: sau 8 năm, anh 32 tuổi, em 16 tuổi — đúng gấp đôi."
+    },
+    {
+      "id": "q17",
+      "topic": "Tư duy không gian",
+      "type": "single",
+      "prompt": "Một hình vuông ABCD có tâm O (A ở góc trên-trái, B ở góc trên-phải, C ở góc dưới-phải, D ở góc dưới-trái). Xoay hình vuông 90° theo chiều kim đồng hồ quanh tâm O. Sau khi xoay, đỉnh A sẽ nằm ở vị trí nào?",
+      "options": [
+        { "id": "a", "text": "Góc trên-phải (chỗ cũ của B)" },
+        { "id": "b", "text": "Góc dưới-phải (chỗ cũ của C)" },
+        { "id": "c", "text": "Góc dưới-trái (chỗ cũ của D)" },
+        { "id": "d", "text": "Vẫn ở góc trên-trái" }
+      ],
+      "correct": ["a"],
+      "explanation": "Xoay 90° theo chiều kim đồng hồ: mỗi đỉnh dịch sang vị trí tiếp theo theo CKĐ. A (trên-trái) → B (trên-phải), B (trên-phải) → C (dưới-phải), C (dưới-phải) → D (dưới-trái), D (dưới-trái) → A (trên-trái). Vậy đỉnh A di chuyển đến góc trên-phải, chỗ cũ của B."
+    },
+    {
+      "id": "q18",
+      "topic": "Tư duy không gian",
+      "type": "single",
+      "prompt": "Một tờ giấy hình vuông được gấp đôi theo chiều ngang (cạnh phải gập sang trái), rồi gấp đôi tiếp theo chiều dọc (cạnh trên gập xuống dưới). Sau đó cắt bỏ góc dưới-phải của xấp giấy đang gấp. Khi mở tờ giấy ra hoàn toàn, có bao nhiêu lỗ hổng xuất hiện?",
+      "options": [
+        { "id": "a", "text": "1 lỗ" },
+        { "id": "b", "text": "2 lỗ" },
+        { "id": "c", "text": "3 lỗ" },
+        { "id": "d", "text": "4 lỗ" }
+      ],
+      "correct": ["a"],
+      "explanation": "Sau hai lần gấp, tờ giấy gồm 4 lớp. Góc dưới-phải của xấp giấy đã gấp tương ứng với vị trí tâm của tờ giấy gốc (4 lớp chồng khít tại điểm tâm). Khi cắt góc đó và mở ra, 4 lớp cùng tạo thành 1 lỗ ở chính giữa. Nếu cắt ở cạnh thì tạo 2 lỗ; ở góc ngoài tạo 4 lỗ; nhưng ở điểm tâm thì chỉ 1 lỗ."
+    },
+    {
+      "id": "q19",
+      "topic": "Tư duy không gian",
+      "type": "single",
+      "prompt": "Một khối lập phương 3×3×3 gồm 27 khối nhỏ được sơn đỏ toàn bộ 6 mặt ngoài rồi tách rời thành từng khối nhỏ. Có bao nhiêu khối nhỏ có ĐÚNG 2 mặt được sơn?",
+      "options": [
+        { "id": "a", "text": "6" },
+        { "id": "b", "text": "8" },
+        { "id": "c", "text": "12" },
+        { "id": "d", "text": "24" }
+      ],
+      "correct": ["c"],
+      "explanation": "Khối nhỏ có đúng 2 mặt sơn là các khối nằm ở cạnh (không phải góc) của khối 3×3×3. Mỗi cạnh của khối lớn có 1 khối ở giữa cạnh (không tính 2 góc đầu), và có 12 cạnh → 12 khối. (a) 6 là số khối có 1 mặt sơn (trung tâm mỗi mặt). (b) 8 là số khối có 3 mặt sơn (góc). (d) 24 là tổng khối sơn ít nhất 1 mặt trừ góc."
+    },
+    {
+      "id": "q20",
+      "topic": "Tư duy không gian",
+      "type": "single",
+      "prompt": "Một mũi tên đang chỉ về hướng Bắc. Xoay nó 90° theo chiều kim đồng hồ, rồi xoay thêm 180°. Sau hai lần xoay, mũi tên đang chỉ về hướng nào?",
+      "options": [
+        { "id": "a", "text": "Bắc" },
+        { "id": "b", "text": "Đông" },
+        { "id": "c", "text": "Nam" },
+        { "id": "d", "text": "Tây" }
+      ],
+      "correct": ["d"],
+      "explanation": "Ban đầu: Bắc. Xoay 90° CKĐ: Bắc → Đông. Xoay thêm 180°: Đông → Tây (180° làm đảo ngược hoàn toàn). Tổng cộng xoay 90°+180°=270° theo CKĐ từ Bắc, tương đương 90° ngược chiều: Bắc → Tây. Cả hai cách tính đều cho kết quả Tây."
+    },
+    {
+      "id": "q21",
+      "topic": "Sắp xếp & ràng buộc",
+      "type": "single",
+      "prompt": "Sáu người A, B, C, D, E, F ngồi đều quanh bàn tròn 6 ghế (đánh số 1–6 theo chiều kim đồng hồ). Biết: A ngồi đối diện D; B ngồi ngay bên phải A; F ngồi ngay bên trái D; C không ngồi cạnh A. Ai ngồi đối diện với B?",
+      "options": [
+        { "id": "a", "text": "C" },
+        { "id": "b", "text": "E" },
+        { "id": "c", "text": "F" },
+        { "id": "d", "text": "Không xác định được" }
+      ],
+      "correct": ["a"],
+      "explanation": "Cố định A = ghế 1. D đối diện A = ghế 4. B ngay phải A = ghế 2. F ngay trái D = ghế 3. Còn ghế 5, 6 cho C và E. C không cạnh A: hai ghế cạnh A là ghế 2 (đã có B) và ghế 6. Vậy C không ở ghế 6 → C = ghế 5, E = ghế 6. Bàn tròn 6 ghế: ghế đối diện nhau là cặp (1,4), (2,5), (3,6). Đối diện B (ghế 2) là ghế 5 = C. Đáp án: C."
+    },
+    {
+      "id": "q22",
+      "topic": "Sắp xếp & ràng buộc",
+      "type": "single",
+      "prompt": "Bốn loại trái cây Xoài (X), Cam (C), Ổi (O), Bưởi (B) xếp thành hàng từ trái sang phải. Biết: Xoài đứng ở vị trí thứ 1; Ổi không đứng cạnh Xoài; Cam đứng ngay bên trái Bưởi. Vị trí từ trái sang phải theo thứ tự đúng là?",
+      "options": [
+        { "id": "a", "text": "Xoài, Ổi, Cam, Bưởi" },
+        { "id": "b", "text": "Xoài, Cam, Bưởi, Ổi" },
+        { "id": "c", "text": "Xoài, Cam, Ổi, Bưởi" },
+        { "id": "d", "text": "Xoài, Bưởi, Cam, Ổi" }
+      ],
+      "correct": ["b"],
+      "explanation": "X ở vị trí 1. Ổi không cạnh X → Ổi không ở vị trí 2. Cam ngay trái Bưởi → cặp CB ở (2,3) hoặc (3,4). Thử CB=(2,3): vị trí 4=Ổi — Ổi không cạnh X (vị trí 1), ổi ở 4 không cạnh 1 → hợp lệ. Thứ tự: X, C, B, Ổi — khớp đáp án (b). Thử CB=(3,4): vị trí 2=Ổi — Ổi cạnh X ở vị trí 1 → vi phạm. Vậy chỉ có một cấu hình hợp lệ: Xoài, Cam, Bưởi, Ổi."
+    },
+    {
+      "id": "q23",
+      "topic": "Sắp xếp & ràng buộc",
+      "type": "single",
+      "prompt": "Ba cuộc họp X, Y, Z được phân vào 3 phòng: Phòng 1, Phòng 2, Phòng 3, mỗi phòng một cuộc họp. Biết: X không dùng Phòng 1; Y dùng Phòng 2; Z không dùng Phòng 2 và không dùng Phòng 3. Z dùng phòng nào?",
+      "options": [
+        { "id": "a", "text": "Phòng 1" },
+        { "id": "b", "text": "Phòng 2" },
+        { "id": "c", "text": "Phòng 3" },
+        { "id": "d", "text": "Không xác định được" }
+      ],
+      "correct": ["a"],
+      "explanation": "Y dùng Phòng 2 (đã cho). Z không dùng Phòng 2 (đã có Y) và không dùng Phòng 3 → Z chỉ còn Phòng 1. X không dùng Phòng 1 (đã có Z) và Phòng 2 (đã có Y) → X dùng Phòng 3. Kết quả: X=Phòng 3, Y=Phòng 2, Z=Phòng 1. Suy luận loại trừ tuần tự."
+    },
+    {
+      "id": "q24",
+      "topic": "Sắp xếp & ràng buộc",
+      "type": "single",
+      "prompt": "Bốn bạn A, B, C, D thi chạy về đích theo thứ tự 1 đến 4. Biết: A về trước B; D về ngay trước B (D và B về liên tiếp, D trước B); C về sau D. Ai chắc chắn về nhất (thứ 1)?",
+      "options": [
+        { "id": "a", "text": "A" },
+        { "id": "b", "text": "C" },
+        { "id": "c", "text": "D" },
+        { "id": "d", "text": "Không xác định được" }
+      ],
+      "correct": ["a"],
+      "explanation": "D ngay trước B → D = B−1 về thứ tự. A trước B → A < B. C sau D → C > D. Thử A=1, D=2, B=3, C=4: thỏa mãn tất cả. Thử D=1? Thì B=2, A phải trước B nên A=1, mâu thuẫn D=1. Thử C=1? Thì C sau D, mâu thuẫn. Vậy chỉ có A có thể về thứ 1, và cụ thể A=1 là cấu hình duy nhất hợp lệ với 4 người."
+    },
+    {
+      "id": "q25",
+      "topic": "Sắp xếp & ràng buộc",
+      "type": "single",
+      "prompt": "Năm bạn P, Q, R, S, T xếp hàng theo thứ tự từ trái sang phải. Biết: P đứng ở vị trí đầu tiên; R đứng ngay sau Q; S đứng ở vị trí cuối cùng; T không đứng cạnh P. Ai đứng ở vị trí thứ 3?",
+      "options": [
+        { "id": "a", "text": "Q" },
+        { "id": "b", "text": "R" },
+        { "id": "c", "text": "T" },
+        { "id": "d", "text": "Không xác định được" }
+      ],
+      "correct": ["b"],
+      "explanation": "P=1, S=5 đã xác định. R ngay sau Q: cặp QR ở (2,3), (3,4). T không cạnh P (vị trí 1) → T không ở vị trí 2. Vậy T ở 3 hoặc 4. Nếu QR=(2,3): vị trí 4=T, thỏa mãn T không cạnh P. Nếu QR=(3,4): vị trí 2 phải là T — vi phạm T không cạnh P. Vậy QR=(2,3): Q=2, R=3, T=4. Vị trí thứ 3 là R."
+    },
+    {
+      "id": "q26",
+      "topic": "Đọc hiểu biểu đồ",
+      "type": "single",
+      "prompt": "Bảng dưới là số đơn hàng của một shop online 4 tháng liên tiếp. Tháng nào có tốc độ tăng trưởng so với tháng trước cao nhất?",
+      "code": "Tháng 1: 200 đơn\nTháng 2: 260 đơn\nTháng 3: 300 đơn\nTháng 4: 390 đơn",
+      "options": [
+        { "id": "a", "text": "Tháng 2 (tăng 30%)" },
+        { "id": "b", "text": "Tháng 3 (tăng khoảng 15,4%)" },
+        { "id": "c", "text": "Tháng 4 (tăng 30%)" },
+        { "id": "d", "text": "Tháng 2 và Tháng 4 tăng bằng nhau (đều 30%)" }
+      ],
+      "correct": ["d"],
+      "explanation": "Tháng 2: (260−200)/200 = 60/200 = 30%. Tháng 3: (300−260)/260 ≈ 15,4%. Tháng 4: (390−300)/300 = 90/300 = 30%. Cả Tháng 2 và Tháng 4 đều tăng 30% — cùng là mức tăng cao nhất. Dễ nhầm nếu chỉ nhìn số tuyệt đối (Tháng 4 tăng 90 đơn, lớn nhất) thay vì tỉ lệ phần trăm."
+    },
+    {
+      "id": "q27",
+      "topic": "Đọc hiểu biểu đồ",
+      "type": "multi",
+      "prompt": "Bảng dưới là điểm trung bình 3 môn của 3 sinh viên. Phát biểu nào sau đây ĐÚNG? (Chọn tất cả phương án đúng)",
+      "code": "          | Toán | Văn | Anh\nSinh viên A |  8   |  7  |  9\nSinh viên B |  6   |  9  |  7\nSinh viên C |  7   |  8  |  8",
+      "options": [
+        { "id": "a", "text": "Sinh viên A có điểm trung bình 3 môn cao nhất." },
+        { "id": "b", "text": "Sinh viên B có điểm Văn cao nhất trong 3 người." },
+        { "id": "c", "text": "Điểm trung bình 3 môn của C bằng điểm trung bình 3 môn của A." },
+        { "id": "d", "text": "Sinh viên A có điểm Anh thấp hơn C." }
+      ],
+      "correct": ["a", "b"],
+      "explanation": "TB của A = (8+7+9)/3 = 24/3 = 8,0. TB của B = (6+9+7)/3 = 22/3 ≈ 7,33. TB của C = (7+8+8)/3 = 23/3 ≈ 7,67. A cao nhất — (a) đúng. Văn: A=7, B=9, C=8 → B cao nhất — (b) đúng. (c) sai: TB A=8,0 ≠ TB C≈7,67. (d) sai: Anh của A=9, của C=8 — A cao hơn C."
+    },
+    {
+      "id": "q28",
+      "topic": "Đọc hiểu biểu đồ",
+      "type": "single",
+      "prompt": "Bảng dưới là doanh thu (triệu đồng) theo khu vực trong Quý 1 và Quý 2. Khu vực nào có tỉ lệ đóng góp trong tổng doanh thu tăng từ Q1 sang Q2?",
+      "code": "Khu vực | Q1  | Q2\nBắc     | 120 | 150\nTrung   |  80 | 100\nNam     | 200 | 180",
+      "options": [
+        { "id": "a", "text": "Chỉ khu vực Bắc." },
+        { "id": "b", "text": "Chỉ khu vực Trung." },
+        { "id": "c", "text": "Khu vực Bắc và Trung." },
+        { "id": "d", "text": "Cả ba khu vực đều tăng tỉ lệ." }
+      ],
+      "correct": ["c"],
+      "explanation": "Tổng Q1=120+80+200=400, Tổng Q2=150+100+180=430. Tỉ lệ Bắc: Q1=120/400=30%, Q2=150/430≈34,9% — tăng. Tỉ lệ Trung: Q1=80/400=20%, Q2=100/430≈23,3% — tăng. Tỉ lệ Nam: Q1=200/400=50%, Q2=180/430≈41,9% — giảm. Vậy Bắc và Trung cùng tăng tỉ lệ đóng góp, dù Nam có doanh thu tuyệt đối giảm."
+    },
+    {
+      "id": "q29",
+      "topic": "Phân tích quan hệ",
+      "type": "single",
+      "prompt": "Mắt : Nhìn :: Tai : ?",
+      "options": [
+        { "id": "a", "text": "Mặt" },
+        { "id": "b", "text": "Nghe" },
+        { "id": "c", "text": "Âm thanh" },
+        { "id": "d", "text": "Đầu" }
+      ],
+      "correct": ["b"],
+      "explanation": "Quan hệ: bộ phận cơ thể : chức năng chính của nó. Mắt dùng để nhìn; tai dùng để nghe. (a) 'Mặt' là bộ phận lớn hơn chứa tai và mắt — sai kiểu quan hệ. (c) 'Âm thanh' là đối tượng tai tiếp nhận chứ không phải chức năng. (d) 'Đầu' là vị trí của tai."
+    },
+    {
+      "id": "q30",
+      "topic": "Phân tích quan hệ",
+      "type": "single",
+      "prompt": "Tháng : Năm :: Giờ : ?",
+      "options": [
+        { "id": "a", "text": "Phút" },
+        { "id": "b", "text": "Giây" },
+        { "id": "c", "text": "Ngày" },
+        { "id": "d", "text": "Tuần" }
+      ],
+      "correct": ["c"],
+      "explanation": "Quan hệ: đơn vị thời gian nhỏ : đơn vị thời gian lớn liền kề chứa nó. 12 tháng tạo thành 1 năm; 24 giờ tạo thành 1 ngày. Đơn vị lớn liền kề của 'giờ' là 'ngày'. (a) Phút nhỏ hơn giờ — ngược chiều. (b) Giây nhỏ hơn phút < giờ. (d) Tuần không chứa trực tiếp các giờ theo quy ước thông thường dùng khi so sánh hệ thứ bậc."
+    }
+  ]
+}

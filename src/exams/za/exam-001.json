@@ -1,0 +1,444 @@
+{
+  "id": "za-001",
+  "type": "za",
+  "title": "Zalo Aptitude Practice #1",
+  "language": "vi",
+  "durationMinutes": 70,
+  "totalQuestions": 30,
+  "passingScore": 70,
+  "createdAt": "2026-05-26",
+  "topics": [
+    "Suy luận số học",
+    "Suy luận logic",
+    "Bài toán đố",
+    "Tư duy không gian",
+    "Sắp xếp & ràng buộc",
+    "Đọc hiểu biểu đồ",
+    "Phân tích quan hệ"
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "topic": "Suy luận số học",
+      "type": "single",
+      "prompt": "Số tiếp theo trong dãy: 2, 5, 10, 17, 26, ?",
+      "options": [
+        { "id": "a", "text": "35" },
+        { "id": "b", "text": "37" },
+        { "id": "c", "text": "36" },
+        { "id": "d", "text": "39" }
+      ],
+      "correct": ["b"],
+      "explanation": "Hiệu liên tiếp: 3, 5, 7, 9 — tăng thêm 2 mỗi bước (dãy số lẻ). Hiệu tiếp theo là 11, nên số cần tìm = 26 + 11 = 37. Công thức tổng quát: a_n = n² + 1. (a) 35 là kết quả cộng thêm 9 — lặp hiệu cũ thay vì tăng thêm 2. (c) 36 = 26 + 10 — lệch 1 đơn vị. (d) 39 = 26 + 13 — tăng quá mức."
+    },
+    {
+      "id": "q2",
+      "topic": "Suy luận số học",
+      "type": "single",
+      "prompt": "Tìm số còn thiếu trong dãy: 3, 6, 12, 24, ?, 96",
+      "options": [
+        { "id": "a", "text": "36" },
+        { "id": "b", "text": "42" },
+        { "id": "c", "text": "48" },
+        { "id": "d", "text": "72" }
+      ],
+      "correct": ["c"],
+      "explanation": "Mỗi số bằng số trước nhân 2: 3→6→12→24→48→96. Số còn thiếu là 48. (a) 36 = 24 + 12 — nhầm sang phép cộng hiệu trước. (b) 42 không theo quy luật nào. (d) 72 = 24 × 3 — nhầm hệ số nhân thành 3 thay vì 2."
+    },
+    {
+      "id": "q3",
+      "topic": "Suy luận số học",
+      "type": "single",
+      "prompt": "Dãy số: 81, 27, 9, 3, ?. Số tiếp theo là bao nhiêu?",
+      "options": [
+        { "id": "a", "text": "0" },
+        { "id": "b", "text": "1" },
+        { "id": "c", "text": "1/3" },
+        { "id": "d", "text": "2" }
+      ],
+      "correct": ["b"],
+      "explanation": "Mỗi số bằng số trước chia 3: 81÷3=27, 27÷3=9, 9÷3=3, 3÷3=1. Đây là dãy lũy thừa giảm dần của 3: 3⁴, 3³, 3², 3¹, 3⁰=1. (a) 0 không thuộc dãy này. (c) 1/3 = 3⁻¹ là số tiếp theo sau 1, không phải sau 3. (d) 2 không theo quy luật chia 3."
+    },
+    {
+      "id": "q4",
+      "topic": "Suy luận số học",
+      "type": "single",
+      "prompt": "Dãy số: 7, 11, 16, 22, 29, ?",
+      "options": [
+        { "id": "a", "text": "35" },
+        { "id": "b", "text": "36" },
+        { "id": "c", "text": "37" },
+        { "id": "d", "text": "38" }
+      ],
+      "correct": ["c"],
+      "explanation": "Hiệu liên tiếp: 4, 5, 6, 7 — tăng thêm 1 mỗi bước. Hiệu tiếp theo là 8, nên số cần tìm = 29 + 8 = 37. (a) 35 = 29 + 6 — lặp sai hiệu. (b) 36 = 29 + 7 — lặp lại hiệu trước thay vì tăng. (d) 38 = 29 + 9 — tăng hiệu thêm 2 thay vì 1."
+    },
+    {
+      "id": "q5",
+      "topic": "Suy luận số học",
+      "type": "single",
+      "prompt": "Dãy số: 1, 2, 6, 24, 120, ?",
+      "options": [
+        { "id": "a", "text": "360" },
+        { "id": "b", "text": "480" },
+        { "id": "c", "text": "600" },
+        { "id": "d", "text": "720" }
+      ],
+      "correct": ["d"],
+      "explanation": "Đây là dãy giai thừa: 1!=1, 2!=2, 3!=6, 4!=24, 5!=120, 6!=720. Mỗi số bằng số trước nhân với chỉ số vị trí kế tiếp: ×2, ×3, ×4, ×5, ×6. Số tiếp theo = 120 × 6 = 720. (a) 360 = 120 × 3. (b) 480 = 120 × 4. (c) 600 = 120 × 5 — nhầm hệ số."
+    },
+    {
+      "id": "q6",
+      "topic": "Suy luận logic",
+      "type": "single",
+      "prompt": "Tất cả lập trình viên trong công ty đều biết Python. Lan là lập trình viên trong công ty đó. Điều nào chắc chắn đúng?",
+      "options": [
+        { "id": "a", "text": "Lan chỉ biết mỗi Python, không biết ngôn ngữ nào khác." },
+        { "id": "b", "text": "Lan biết Python." },
+        { "id": "c", "text": "Mọi người biết Python đều là lập trình viên trong công ty đó." },
+        { "id": "d", "text": "Lan là lập trình viên giỏi nhất công ty." }
+      ],
+      "correct": ["b"],
+      "explanation": "Áp dụng Modus Ponens: 'mọi lập trình viên → biết Python' và 'Lan là lập trình viên' → 'Lan biết Python'. (a) sai vì tiền đề chỉ nói biết Python, không giới hạn việc biết thêm ngôn ngữ khác. (c) là đảo ngược mệnh đề — không thể suy ra từ tiền đề gốc. (d) không có cơ sở nào từ các thông tin đã cho."
+    },
+    {
+      "id": "q7",
+      "topic": "Suy luận logic",
+      "type": "single",
+      "prompt": "Nếu hôm nay là thứ Hai thì An đi học. Hôm nay An không đi học. Điều nào chắc chắn đúng?",
+      "options": [
+        { "id": "a", "text": "Hôm nay là thứ Hai." },
+        { "id": "b", "text": "Hôm nay không phải thứ Hai." },
+        { "id": "c", "text": "An bị ốm nên không đi học." },
+        { "id": "d", "text": "Hôm nay là Chủ nhật." }
+      ],
+      "correct": ["b"],
+      "explanation": "Áp dụng Modus Tollens: 'P → Q; ¬Q; suy ra ¬P'. Mệnh đề gốc: thứ Hai (P) → An đi học (Q). An không đi học (¬Q) → hôm nay không phải thứ Hai (¬P). (a) mâu thuẫn trực tiếp với kết luận. (c) lý do không đi học không được đề cập. (d) Chủ nhật chỉ là một khả năng trong nhiều ngày có thể."
+    },
+    {
+      "id": "q8",
+      "topic": "Suy luận logic",
+      "type": "multi",
+      "prompt": "Cho mệnh đề: 'Nếu sản phẩm lỗi thì bị trả lại.' Phát biểu nào sau đây tương đương về mặt logic với mệnh đề trên? (Chọn tất cả phương án đúng)",
+      "options": [
+        { "id": "a", "text": "Nếu sản phẩm không bị trả lại thì sản phẩm không lỗi." },
+        { "id": "b", "text": "Nếu sản phẩm không lỗi thì không bị trả lại." },
+        { "id": "c", "text": "Không tồn tại sản phẩm lỗi mà không bị trả lại." },
+        { "id": "d", "text": "Nếu sản phẩm bị trả lại thì sản phẩm lỗi." }
+      ],
+      "correct": ["a", "c"],
+      "explanation": "Mệnh đề 'P → Q' tương đương với đối ngẫu '¬Q → ¬P' (đáp án a) và với phủ định 'không tồn tại P đúng mà Q sai' (đáp án c). (b) là phản đảo — sai vì sản phẩm không lỗi vẫn có thể bị trả lại do lý do khác như hết hạn. (d) là mệnh đề đảo — sai vì trả lại không nhất thiết do lỗi sản phẩm."
+    },
+    {
+      "id": "q9",
+      "topic": "Suy luận logic",
+      "type": "single",
+      "prompt": "Một số nhân viên kỹ thuật thích làm việc ban đêm. Mọi người thích làm ban đêm đều uống cà phê. Kết luận nào sau đây chắc chắn đúng?",
+      "options": [
+        { "id": "a", "text": "Mọi nhân viên kỹ thuật đều uống cà phê." },
+        { "id": "b", "text": "Một số nhân viên kỹ thuật uống cà phê." },
+        { "id": "c", "text": "Mọi người uống cà phê đều là nhân viên kỹ thuật." },
+        { "id": "d", "text": "Không có nhân viên kỹ thuật nào uống cà phê." }
+      ],
+      "correct": ["b"],
+      "explanation": "Từ 'một số nhân viên kỹ thuật thích làm đêm' và 'ai thích làm đêm đều uống cà phê', suy ra nhóm nhân viên kỹ thuật thích làm đêm đó cũng uống cà phê — tức là một số nhân viên kỹ thuật uống cà phê. (a) tổng quát hóa quá mức từ 'một số' thành 'mọi'. (c) là đảo ngược tiền đề thứ hai — không hợp lệ. (d) mâu thuẫn hoàn toàn với kết luận đúng."
+    },
+    {
+      "id": "q10",
+      "topic": "Suy luận logic",
+      "type": "single",
+      "prompt": "Trong một cuộc thi, ai đạt trên 80 điểm đều được khen thưởng. Bình không được khen thưởng. Nam được khen thưởng. Điều nào sau đây chắc chắn đúng?",
+      "options": [
+        { "id": "a", "text": "Bình đạt không quá 80 điểm." },
+        { "id": "b", "text": "Nam đạt đúng 81 điểm." },
+        { "id": "c", "text": "Bình đạt đúng 80 điểm." },
+        { "id": "d", "text": "Nam đạt dưới 80 điểm." }
+      ],
+      "correct": ["a"],
+      "explanation": "Modus Tollens: 'điểm > 80 → được khen; Bình không được khen' → Bình không đạt trên 80, tức Bình ≤ 80. (a) 'không quá 80' nghĩa là ≤ 80 — đúng. (b) biết Nam được khen thưởng nên Nam > 80, nhưng không xác định được điểm chính xác. (c) Bình có thể đạt 78, 79 hoặc 80 — không xác định chính xác. (d) mâu thuẫn vì Nam được khen thưởng nên phải > 80."
+    },
+    {
+      "id": "q11",
+      "topic": "Bài toán đố",
+      "type": "single",
+      "prompt": "Hai xe xuất phát cùng lúc từ hai đầu A và B của tuyến đường dài 360 km, chạy ngược chiều nhau. Xe từ A chạy 60 km/h, xe từ B chạy 90 km/h. Sau bao lâu hai xe gặp nhau?",
+      "options": [
+        { "id": "a", "text": "2 giờ 24 phút" },
+        { "id": "b", "text": "3 giờ" },
+        { "id": "c", "text": "4 giờ" },
+        { "id": "d", "text": "6 giờ" }
+      ],
+      "correct": ["a"],
+      "explanation": "Hai xe đi ngược chiều nên tốc độ tiếp cận = 60 + 90 = 150 km/h. Thời gian gặp nhau = 360 ÷ 150 = 2,4 giờ = 2 giờ 24 phút. Kiểm tra: xe A đi 60 × 2,4 = 144 km; xe B đi 90 × 2,4 = 216 km; tổng = 360 km ✓. (b) 3 giờ tương ứng 450 km — vượt quãng đường. (c) 4 giờ tương ứng 600 km. (d) 6 giờ là thời gian nếu chỉ có xe A đi hết 360 km."
+    },
+    {
+      "id": "q12",
+      "topic": "Bài toán đố",
+      "type": "single",
+      "prompt": "Giá một mặt hàng là 200.000 đồng. Cửa hàng giảm giá 20%, sau đó tăng giá trở lại 10% trên giá đã giảm. Giá cuối cùng của mặt hàng là bao nhiêu?",
+      "options": [
+        { "id": "a", "text": "200.000 đồng" },
+        { "id": "b", "text": "190.000 đồng" },
+        { "id": "c", "text": "176.000 đồng" },
+        { "id": "d", "text": "180.000 đồng" }
+      ],
+      "correct": ["c"],
+      "explanation": "Sau giảm 20%: 200.000 × 0,8 = 160.000 đồng. Sau tăng 10% trên giá đã giảm: 160.000 × 1,1 = 176.000 đồng. Lưu ý: giảm 20% rồi tăng 10% không trở về giá gốc vì tính trên hai mốc khác nhau. (a) 200.000 — nhầm nghĩ +10% bù lại −20%. (b) 190.000 = 200.000 − 10.000 — nhầm tính đơn giản. (d) 180.000 = 200.000 × 0,9 — chỉ áp dụng một lần điều chỉnh sai."
+    },
+    {
+      "id": "q13",
+      "topic": "Bài toán đố",
+      "type": "single",
+      "prompt": "Hiện tại cha 42 tuổi, con 12 tuổi. Bao nhiêu năm nữa tuổi cha gấp đúng 2 lần tuổi con?",
+      "options": [
+        { "id": "a", "text": "15 năm" },
+        { "id": "b", "text": "18 năm" },
+        { "id": "c", "text": "20 năm" },
+        { "id": "d", "text": "24 năm" }
+      ],
+      "correct": ["b"],
+      "explanation": "Gọi số năm cần tìm là x. Sau x năm: cha = 42 + x, con = 12 + x. Điều kiện gấp đôi: 42 + x = 2(12 + x) → 42 + x = 24 + 2x → x = 18. Kiểm tra: cha = 60, con = 30, và 60 = 2 × 30 ✓. (a) 15 năm: cha 57, con 27 — tỉ lệ ≈ 2,11. (c) 20 năm: cha 62, con 32 — tỉ lệ ≈ 1,94. (d) 24 năm: cha 66, con 36 — tỉ lệ = 1,83."
+    },
+    {
+      "id": "q14",
+      "topic": "Bài toán đố",
+      "type": "single",
+      "prompt": "Nhóm A hoàn thành một dự án trong 6 ngày. Nhóm B hoàn thành cùng dự án đó trong 12 ngày. Nếu cả hai nhóm cùng làm song song, sau bao nhiêu ngày dự án hoàn thành?",
+      "options": [
+        { "id": "a", "text": "4 ngày" },
+        { "id": "b", "text": "3 ngày" },
+        { "id": "c", "text": "5 ngày" },
+        { "id": "d", "text": "9 ngày" }
+      ],
+      "correct": ["a"],
+      "explanation": "Năng suất nhóm A = 1/6 dự án/ngày; nhóm B = 1/12 dự án/ngày. Tổng năng suất = 1/6 + 1/12 = 2/12 + 1/12 = 3/12 = 1/4 dự án/ngày. Thời gian hoàn thành = 1 ÷ (1/4) = 4 ngày. (b) 3 ngày — tổng năng suất phải là 1/3, quá cao. (c) 5 ngày — tổng năng suất 1/5, thấp hơn thực tế. (d) 9 ngày — nhầm cộng 6 + 12 rồi chia 2."
+    },
+    {
+      "id": "q15",
+      "topic": "Bài toán đố",
+      "type": "multi",
+      "prompt": "Một lớp học có 40 học sinh, trong đó 60% là nữ. Sau kỳ thi, 25% số nam và 50% số nữ đạt loại Giỏi. Phát biểu nào sau đây ĐÚNG? (Chọn tất cả phương án đúng)",
+      "options": [
+        { "id": "a", "text": "Số học sinh nữ đạt Giỏi là 10 em." },
+        { "id": "b", "text": "Tổng số học sinh đạt Giỏi là 16 em." },
+        { "id": "c", "text": "Số học sinh nam đạt Giỏi là 4 em." },
+        { "id": "d", "text": "Tỉ lệ học sinh đạt Giỏi trong toàn lớp là 35%." }
+      ],
+      "correct": ["b", "c"],
+      "explanation": "Nữ: 40 × 60% = 24 em. Nam: 40 − 24 = 16 em. Nam đạt Giỏi: 16 × 25% = 4 em (c đúng). Nữ đạt Giỏi: 24 × 50% = 12 em — không phải 10 em như (a) nên (a) sai. Tổng Giỏi: 4 + 12 = 16 em (b đúng). Tỉ lệ Giỏi toàn lớp: 16/40 = 40%, không phải 35% (d sai)."
+    },
+    {
+      "id": "q16",
+      "topic": "Bài toán đố",
+      "type": "single",
+      "prompt": "Một bình chứa 30 lít dung dịch có nồng độ muối 40%. Người ta đổ thêm 10 lít nước sạch vào bình. Nồng độ muối mới trong bình là bao nhiêu phần trăm?",
+      "options": [
+        { "id": "a", "text": "25%" },
+        { "id": "b", "text": "30%" },
+        { "id": "c", "text": "33,3%" },
+        { "id": "d", "text": "36%" }
+      ],
+      "correct": ["b"],
+      "explanation": "Lượng muối ban đầu = 30 × 40% = 12 lít. Sau khi thêm 10 lít nước sạch, tổng thể tích = 40 lít, lượng muối vẫn là 12 lít. Nồng độ mới = 12 ÷ 40 = 30%. (a) 25% = 12/48 — nhầm thêm 18 lít. (c) 33,3% ≈ 12/36 — nhầm thêm 6 lít. (d) 36% — sai mẫu tính."
+    },
+    {
+      "id": "q17",
+      "topic": "Tư duy không gian",
+      "type": "single",
+      "prompt": "Một khối lập phương 4×4×4 được cắt thành các khối nhỏ 1×1×1. Có bao nhiêu khối nhỏ nằm hoàn toàn bên trong (không tiếp xúc với bất kỳ mặt ngoài nào)?",
+      "options": [
+        { "id": "a", "text": "4" },
+        { "id": "b", "text": "8" },
+        { "id": "c", "text": "16" },
+        { "id": "d", "text": "27" }
+      ],
+      "correct": ["b"],
+      "explanation": "Khối bên trong là những khối không chạm mặt ngoài — tức là thuộc các hàng từ 2 đến 3 theo cả ba chiều. Số khối bên trong = (4−2)³ = 2³ = 8. Tổng = 4³ = 64; số khối tiếp xúc mặt ngoài = 64 − 8 = 56. (a) 4 — nhầm chỉ tính theo một chiều. (c) 16 = 4² — nhầm tính theo hai chiều. (d) 27 = 3³ — nhầm dùng n=3."
+    },
+    {
+      "id": "q18",
+      "topic": "Tư duy không gian",
+      "type": "single",
+      "prompt": "Một hình chữ nhật có chiều dài 8 cm và chiều rộng 5 cm. Nếu tăng cả chiều dài và chiều rộng thêm 2 cm mỗi chiều, diện tích tăng thêm bao nhiêu cm²?",
+      "options": [
+        { "id": "a", "text": "4 cm²" },
+        { "id": "b", "text": "26 cm²" },
+        { "id": "c", "text": "30 cm²" },
+        { "id": "d", "text": "34 cm²" }
+      ],
+      "correct": ["c"],
+      "explanation": "Diện tích ban đầu = 8 × 5 = 40 cm². Diện tích mới = (8+2) × (5+2) = 10 × 7 = 70 cm². Tăng thêm = 70 − 40 = 30 cm². Có thể tính nhanh: tăng = 2×8 + 2×5 + 2×2 = 16 + 10 + 4 = 30. (a) 4 = 2² — chỉ tính phần góc vuông tăng thêm. (b) 26 = 2×(8+5) — nhầm tính chu vi thay vì diện tích. (d) 34 = 2×8 + 2×5 + 6 — sai phần giao."
+    },
+    {
+      "id": "q19",
+      "topic": "Tư duy không gian",
+      "type": "single",
+      "prompt": "Một khối xếp từ các khối 1×1×1 nhìn từ trên xuống có hình chữ L gồm: hàng đáy 3 ô (trái-giữa-phải), hàng trên 1 ô (bên trái). Tầng 1 (đáy) có đủ 4 ô hình chữ L, tầng 2 chỉ có 2 ô cột bên trái. Tổng số khối là bao nhiêu?",
+      "options": [
+        { "id": "a", "text": "4" },
+        { "id": "b", "text": "6" },
+        { "id": "c", "text": "8" },
+        { "id": "d", "text": "10" }
+      ],
+      "correct": ["b"],
+      "explanation": "Tầng 1 (đáy) có 4 khối theo hình chữ L. Tầng 2 có 2 khối chồng lên cột bên trái. Tổng = 4 + 2 = 6 khối. (a) 4 — chỉ đếm tầng 1. (c) 8 — nhầm tầng 2 có 4 khối. (d) 10 — đếm sai tổng do tưởng mỗi tầng có 5 ô."
+    },
+    {
+      "id": "q20",
+      "topic": "Tư duy không gian",
+      "type": "single",
+      "prompt": "Một tờ giấy hình vuông được gập đôi theo đường chéo tạo ra hình tam giác vuông cân. Sau đó, hình tam giác này tiếp tục được gập đôi theo trục đối xứng đi qua đỉnh góc vuông. Hình thu được có dạng gì?",
+      "options": [
+        { "id": "a", "text": "Hình vuông nhỏ hơn" },
+        { "id": "b", "text": "Hình tam giác vuông cân nhỏ hơn" },
+        { "id": "c", "text": "Hình thang vuông" },
+        { "id": "d", "text": "Hình chữ nhật" }
+      ],
+      "correct": ["b"],
+      "explanation": "Gập vuông theo đường chéo lần 1 → tam giác vuông cân. Gập tam giác vuông cân theo đường chéo (cạnh huyền) lần 2 → tam giác vuông cân nhỏ hơn với cạnh bằng một nửa. Hai lần gập theo đường chéo đều cho kết quả là tam giác vuông cân. (a) hình vuông chỉ tạo ra khi gập theo cạnh ngang hoặc dọc. (c) hình thang vuông không tạo ra từ phép gập đường chéo này. (d) hình chữ nhật tạo ra khi gập vuông theo cạnh ngang."
+    },
+    {
+      "id": "q21",
+      "topic": "Sắp xếp & ràng buộc",
+      "type": "single",
+      "prompt": "Bốn bạn A, B, C, D mỗi người chọn một màu khác nhau trong số: đỏ, vàng, xanh lá, tím. Biết: B chọn vàng. A không chọn đỏ và không chọn xanh lá. D không chọn đỏ. Ai chọn màu đỏ?",
+      "options": [
+        { "id": "a", "text": "A" },
+        { "id": "b", "text": "B" },
+        { "id": "c", "text": "C" },
+        { "id": "d", "text": "D" }
+      ],
+      "correct": ["c"],
+      "explanation": "B = vàng (đã biết). A không chọn đỏ, không chọn xanh lá, và vàng đã có B → A = tím. D không chọn đỏ, vàng và tím đã có B và A → D = xanh lá. Người duy nhất còn lại là C → C = đỏ. Kiểm tra: A=tím, B=vàng, C=đỏ, D=xanh lá — mỗi màu xuất hiện đúng một lần, thoả mọi ràng buộc."
+    },
+    {
+      "id": "q22",
+      "topic": "Sắp xếp & ràng buộc",
+      "type": "single",
+      "prompt": "Năm bạn P, Q, R, S, T xếp hàng một hàng ngang từ vị trí 1 (trái) đến vị trí 5 (phải). Biết: R đứng ở vị trí 3. P đứng ngay bên trái R. T đứng ở vị trí 5. S không đứng cạnh T. Ai đứng ở vị trí 4?",
+      "options": [
+        { "id": "a", "text": "Q" },
+        { "id": "b", "text": "S" },
+        { "id": "c", "text": "P" },
+        { "id": "d", "text": "T" }
+      ],
+      "correct": ["a"],
+      "explanation": "R ở vị trí 3; P ngay bên trái R → P ở vị trí 2. T ở vị trí 5. Còn lại Q và S cho vị trí 1 và 4. S không đứng cạnh T (vị trí 5) → S không ở vị trí 4 → S ở vị trí 1 và Q ở vị trí 4. Thứ tự đầy đủ: S(1)–P(2)–R(3)–Q(4)–T(5). Kiểm tra: S ở vị trí 1, không cạnh T ở vị trí 5 ✓."
+    },
+    {
+      "id": "q23",
+      "topic": "Sắp xếp & ràng buộc",
+      "type": "single",
+      "prompt": "Ba bộ phận Kinh doanh (KD), Kỹ thuật (KT) và Marketing (MK) lần lượt tổ chức sự kiện vào tháng 3, tháng 4 và tháng 5, mỗi bộ phận một tháng khác nhau. Biết: KD tổ chức trước KT. MK tổ chức vào tháng 3. Bộ phận nào tổ chức vào tháng 4?",
+      "options": [
+        { "id": "a", "text": "Kinh doanh" },
+        { "id": "b", "text": "Kỹ thuật" },
+        { "id": "c", "text": "Marketing" },
+        { "id": "d", "text": "Không xác định được" }
+      ],
+      "correct": ["a"],
+      "explanation": "MK = tháng 3. Còn lại KD và KT ở tháng 4 và 5. KD tổ chức trước KT → KD = tháng 4, KT = tháng 5. Thứ tự: MK(T3) – KD(T4) – KT(T5). Kiểm tra: KD trước KT ✓, MK ở tháng 3 ✓. Nghiệm duy nhất."
+    },
+    {
+      "id": "q24",
+      "topic": "Sắp xếp & ràng buộc",
+      "type": "single",
+      "prompt": "Sáu cuốn sách màu: Cam (C), Đỏ (Đ), Vàng (V), Xanh (X), Tím (T), Trắng (Tr) xếp trên kệ từ trái sang phải (vị trí 1–6). Biết: Cam ở vị trí 1. Trắng ở vị trí 6. Vàng nằm giữa Đỏ và Xanh (theo thứ tự Đỏ–Vàng–Xanh). Tím đứng ngay bên phải Xanh. Cuốn sách ở vị trí thứ 4 là màu gì?",
+      "options": [
+        { "id": "a", "text": "Đỏ" },
+        { "id": "b", "text": "Vàng" },
+        { "id": "c", "text": "Xanh" },
+        { "id": "d", "text": "Tím" }
+      ],
+      "correct": ["c"],
+      "explanation": "Cam(1) và Trắng(6) cố định. Chuỗi Đỏ–Vàng–Xanh–Tím (vì Tím ngay phải Xanh) chiếm 4 vị trí liên tiếp trong {2,3,4,5}. Vị trí 2,3,4,5 vừa đủ 4 ô → Đỏ(2)–Vàng(3)–Xanh(4)–Tím(5). Cuốn ở vị trí 4 là Xanh. Kiểm tra: Vàng giữa Đỏ và Xanh ✓, Tím ngay phải Xanh ✓."
+    },
+    {
+      "id": "q25",
+      "topic": "Sắp xếp & ràng buộc",
+      "type": "single",
+      "prompt": "Ba người M, N, O đảm nhận ba công việc khác nhau: Thiết kế (TK), Viết code (VC), Kiểm thử (KT). Biết: M không làm Viết code. N làm Thiết kế. Ai làm Kiểm thử?",
+      "options": [
+        { "id": "a", "text": "M" },
+        { "id": "b", "text": "N" },
+        { "id": "c", "text": "O" },
+        { "id": "d", "text": "Không xác định được" }
+      ],
+      "correct": ["a"],
+      "explanation": "N = Thiết kế (đã biết). Còn lại M và O cho Viết code và Kiểm thử. M không làm Viết code → M = Kiểm thử, O = Viết code. Nghiệm duy nhất: M=KT, N=TK, O=VC. Kiểm tra: M không làm VC ✓, N làm TK ✓."
+    },
+    {
+      "id": "q26",
+      "topic": "Đọc hiểu biểu đồ",
+      "type": "single",
+      "prompt": "Bảng dưới ghi số lượt tải ứng dụng (nghìn lượt) theo quý trong năm 2025. Tổng lượt tải cả năm là bao nhiêu nghìn lượt?",
+      "code": "Quý 1: 120\nQuý 2: 145\nQuý 3: 180\nQuý 4: 155",
+      "options": [
+        { "id": "a", "text": "560 nghìn lượt" },
+        { "id": "b", "text": "580 nghìn lượt" },
+        { "id": "c", "text": "600 nghìn lượt" },
+        { "id": "d", "text": "620 nghìn lượt" }
+      ],
+      "correct": ["c"],
+      "explanation": "Tổng = 120 + 145 + 180 + 155. Tính từng bước: 120 + 145 = 265; 265 + 180 = 445; 445 + 155 = 600 nghìn lượt. (a) 560 — nhầm quý 4 thành 115. (b) 580 — sai 20 đơn vị. (d) 620 — cộng dư 20."
+    },
+    {
+      "id": "q27",
+      "topic": "Đọc hiểu biểu đồ",
+      "type": "multi",
+      "prompt": "Dựa vào bảng doanh thu (triệu đồng) của 3 sản phẩm trong tháng 6 và tháng 7 dưới đây, phát biểu nào sau đây ĐÚNG? (Chọn tất cả phương án đúng)",
+      "code": "Sản phẩm | Tháng 6 | Tháng 7\nA        |   200   |   250\nB        |   300   |   270\nC        |   150   |   180",
+      "options": [
+        { "id": "a", "text": "Doanh thu tháng 7 của sản phẩm A tăng 25% so với tháng 6." },
+        { "id": "b", "text": "Sản phẩm B có doanh thu tháng 7 giảm so với tháng 6." },
+        { "id": "c", "text": "Tổng doanh thu tháng 7 của cả 3 sản phẩm là 700 triệu đồng." },
+        { "id": "d", "text": "Sản phẩm C có tỉ lệ tăng trưởng tháng 7 cao nhất trong 3 sản phẩm." }
+      ],
+      "correct": ["a", "b", "c"],
+      "explanation": "A: tăng trưởng = (250−200)/200 = 25% ✓ (a đúng). B: 270 < 300 → giảm ✓ (b đúng). Tổng T7: 250+270+180 = 700 triệu ✓ (c đúng). C: tăng (180−150)/150 = 20%; A tăng 25% > C 20% → C không tăng trưởng cao nhất (d sai)."
+    },
+    {
+      "id": "q28",
+      "topic": "Đọc hiểu biểu đồ",
+      "type": "single",
+      "prompt": "Bảng dưới ghi điểm thi của 5 học sinh. Điểm trung bình của cả nhóm là bao nhiêu?",
+      "code": "An:   72\nBình: 85\nChi:  68\nDung: 91\nEm:   74",
+      "options": [
+        { "id": "a", "text": "76" },
+        { "id": "b", "text": "78" },
+        { "id": "c", "text": "80" },
+        { "id": "d", "text": "82" }
+      ],
+      "correct": ["b"],
+      "explanation": "Tổng điểm = 72 + 85 + 68 + 91 + 74 = 390. Tính lần lượt: 72+85=157, 157+68=225, 225+91=316, 316+74=390. Trung bình = 390 ÷ 5 = 78. (a) 76 = 380÷5 — tổng bị sai 10. (c) 80 = 400÷5 — cộng dư 10. (d) 82 = 410÷5 — cộng dư 20."
+    },
+    {
+      "id": "q29",
+      "topic": "Phân tích quan hệ",
+      "type": "single",
+      "prompt": "Ngón tay : Bàn tay :: Trang sách : ?",
+      "options": [
+        { "id": "a", "text": "Bút mực" },
+        { "id": "b", "text": "Quyển sách" },
+        { "id": "c", "text": "Thư viện" },
+        { "id": "d", "text": "Chữ viết" }
+      ],
+      "correct": ["b"],
+      "explanation": "Quan hệ: bộ phận → tổng thể. Ngón tay là bộ phận cấu thành bàn tay; trang sách là bộ phận cấu thành quyển sách. (a) bút mực là công cụ liên quan đến sách nhưng không phải quan hệ bộ phận–tổng thể. (c) thư viện là tập hợp nhiều quyển sách — quan hệ ngược chiều (tổng thể lớn hơn). (d) chữ viết là nội dung của trang sách — sai kiểu quan hệ."
+    },
+    {
+      "id": "q30",
+      "topic": "Phân tích quan hệ",
+      "type": "single",
+      "prompt": "Nóng : Lạnh :: Nhanh : ?",
+      "options": [
+        { "id": "a", "text": "Vội vàng" },
+        { "id": "b", "text": "Chậm" },
+        { "id": "c", "text": "Dừng lại" },
+        { "id": "d", "text": "Chạy" }
+      ],
+      "correct": ["b"],
+      "explanation": "Quan hệ: cặp từ trái nghĩa (đối lập về mức độ). Nóng >< Lạnh; Nhanh >< Chậm. (a) 'Vội vàng' gần nghĩa với nhanh, cùng chiều chứ không đối lập. (c) 'Dừng lại' là trạng thái không chuyển động — đối lập với 'chuyển động', không phải 'nhanh'. (d) 'Chạy' là hành động, cùng nhóm nghĩa với nhanh."
+    }
+  ]
+}

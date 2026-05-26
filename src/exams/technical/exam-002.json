@@ -1,0 +1,1426 @@
+{
+  "id": "tech-002",
+  "type": "technical",
+  "title": "Technical Practice #2",
+  "language": "en",
+  "durationMinutes": 60,
+  "totalQuestions": 100,
+  "passingScore": 70,
+  "createdAt": "2026-05-26",
+  "topics": ["DSA", "OOP", "Networking & Web", "Database", "Operating Systems", "AI / ML basics", "General CS / Logic"],
+  "questions": [
+    {
+      "id": "q1",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "What is the time complexity of building a max-heap from an unsorted array of n elements using the bottom-up (Floyd's) algorithm?",
+      "options": [
+        { "id": "a", "text": "O(n log n)" },
+        { "id": "b", "text": "O(n)" },
+        { "id": "c", "text": "O(n²)" },
+        { "id": "d", "text": "O(log n)" }
+      ],
+      "correct": ["b"],
+      "explanation": "Floyd's heapify algorithm starts at the last non-leaf node and calls sift-down on each node upward. Despite each sift-down being O(log n), a tighter analysis using the height distribution of nodes proves the total work sums to O(n). This is why heapsort's build phase is O(n), not O(n log n)."
+    },
+    {
+      "id": "q2",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "Counting sort runs in O(n + k) time where k is the range of input values. Under which condition does counting sort become impractical compared to comparison-based sorts?",
+      "options": [
+        { "id": "a", "text": "When n is very large and values are densely packed" },
+        { "id": "b", "text": "When k >> n, making auxiliary space proportional to k dominate" },
+        { "id": "c", "text": "When the input is already sorted" },
+        { "id": "d", "text": "When duplicate values exist in the input" }
+      ],
+      "correct": ["b"],
+      "explanation": "Counting sort allocates O(k) auxiliary space for the count array. When the key range k is vastly larger than the number of elements n (e.g., sorting 100 integers each in the range 0 to 10^9), the memory cost and initialization cost make it worse than O(n log n) comparison sorts. Duplicates actually help counting sort, and dense packing keeps k small."
+    },
+    {
+      "id": "q3",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "Radix sort processes integers digit by digit. If each digit has d = 10 possible values and numbers have at most k digits, and n numbers are sorted, what is the total time complexity?",
+      "options": [
+        { "id": "a", "text": "O(n log n)" },
+        { "id": "b", "text": "O(n * k)" },
+        { "id": "c", "text": "O(k * (n + d))" },
+        { "id": "d", "text": "O(n * d)" }
+      ],
+      "correct": ["c"],
+      "explanation": "Radix sort runs k passes of a stable sort (typically counting sort) over n elements using base d. Each pass costs O(n + d), giving total O(k * (n + d)). With d = 10 (decimal) and k fixed (e.g., 32-bit ints have k = 10 decimal digits), this approaches O(n). Option (b) omits d; option (d) omits k and swaps n and d."
+    },
+    {
+      "id": "q4",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "Given the binary tree below, what is its post-order traversal?",
+      "code": "         5\n        / \\\n       3   8\n      / \\   \\\n     1   4   9",
+      "options": [
+        { "id": "a", "text": "1 3 4 5 8 9" },
+        { "id": "b", "text": "1 4 3 9 8 5" },
+        { "id": "c", "text": "5 3 1 4 8 9" },
+        { "id": "d", "text": "5 8 9 3 1 4" }
+      ],
+      "correct": ["b"],
+      "explanation": "Post-order visits left subtree, then right subtree, then root. Starting from root 5: left subtree of 3 (post-order: 1, 4, 3), then right subtree of 8 (post-order: 9, 8), then root 5. Result: 1 4 3 9 8 5. Option (a) is in-order; (c) is pre-order; (d) reverses the right subtree."
+    },
+    {
+      "id": "q5",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "The recurrence T(n) = 4T(n/2) + n describes an algorithm. Using the Master Theorem, what is T(n)?",
+      "options": [
+        { "id": "a", "text": "O(n log n)" },
+        { "id": "b", "text": "O(n²)" },
+        { "id": "c", "text": "O(n² log n)" },
+        { "id": "d", "text": "O(n^1.5)" }
+      ],
+      "correct": ["b"],
+      "explanation": "In the Master Theorem form T(n) = aT(n/b) + f(n): a = 4, b = 2, so n^(log_b a) = n^(log_2 4) = n². Since f(n) = n = O(n^(2-ε)) for ε = 1, we are in Case 1, and T(n) = Θ(n²). The work per level grows geometrically, so the last level dominates."
+    },
+    {
+      "id": "q6",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "What is the worst-case time complexity of searching for an element in a balanced Binary Search Tree (BST) with n nodes?",
+      "options": [
+        { "id": "a", "text": "O(n)" },
+        { "id": "b", "text": "O(log n)" },
+        { "id": "c", "text": "O(1)" },
+        { "id": "d", "text": "O(n log n)" }
+      ],
+      "correct": ["b"],
+      "explanation": "In a balanced BST (e.g., AVL or Red-Black tree), the height is O(log n), so search follows at most O(log n) comparisons going from root to leaf. An unbalanced BST can degrade to O(n) in the worst case (skewed tree), but a balanced BST maintains the O(log n) guarantee through rotations."
+    },
+    {
+      "id": "q7",
+      "topic": "DSA",
+      "type": "multi",
+      "prompt": "Which of the following sorting algorithms are stable? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Merge sort" },
+        { "id": "b", "text": "Heap sort" },
+        { "id": "c", "text": "Counting sort (when implemented with a suffix-scan)" },
+        { "id": "d", "text": "Selection sort" }
+      ],
+      "correct": ["a", "c"],
+      "explanation": "A stable sort preserves the relative order of equal elements. Merge sort is inherently stable when merging prefers left-side ties. Counting sort is stable when filling output from right to left (suffix scan). Heap sort is not stable because heap operations can reorder equal elements. Selection sort is not stable — swapping a non-adjacent element over equal elements can change their relative order."
+    },
+    {
+      "id": "q8",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "After the following operations on an initially empty stack S, what is the top element?",
+      "code": "S.push(7)\nS.push(3)\nS.push(5)\nS.pop()\nS.push(2)\nS.pop()\nS.push(9)",
+      "options": [
+        { "id": "a", "text": "9" },
+        { "id": "b", "text": "3" },
+        { "id": "c", "text": "2" },
+        { "id": "d", "text": "5" }
+      ],
+      "correct": ["a"],
+      "explanation": "Trace: push 7 → [7]; push 3 → [7,3]; push 5 → [7,3,5]; pop → [7,3] (removed 5); push 2 → [7,3,2]; pop → [7,3] (removed 2); push 9 → [7,3,9]. Stack is LIFO, so top is 9."
+    },
+    {
+      "id": "q9",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "A graph has V vertices and E edges and is represented as an adjacency matrix. What is the space complexity?",
+      "options": [
+        { "id": "a", "text": "O(V + E)" },
+        { "id": "b", "text": "O(E)" },
+        { "id": "c", "text": "O(V²)" },
+        { "id": "d", "text": "O(V * E)" }
+      ],
+      "correct": ["c"],
+      "explanation": "An adjacency matrix stores a V×V grid of booleans or weights regardless of how many edges exist, giving O(V²) space. An adjacency list uses O(V + E) space. For sparse graphs (E << V²), adjacency lists are much more memory-efficient."
+    },
+    {
+      "id": "q10",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "What does the following recursive function return when called with n = 6?",
+      "code": "def f(n):\n    if n <= 1:\n        return n\n    return f(n - 1) + f(n - 2)",
+      "options": [
+        { "id": "a", "text": "8" },
+        { "id": "b", "text": "13" },
+        { "id": "c", "text": "5" },
+        { "id": "d", "text": "21" }
+      ],
+      "correct": ["a"],
+      "explanation": "This computes Fibonacci numbers: f(0)=0, f(1)=1, f(2)=1, f(3)=2, f(4)=3, f(5)=5, f(6)=8. The base case returns n (not 1), so f(0)=0 and f(1)=1. Following the sequence: 0, 1, 1, 2, 3, 5, 8 → f(6) = 8."
+    },
+    {
+      "id": "q11",
+      "topic": "DSA",
+      "type": "multi",
+      "prompt": "Which of the following data structures support O(1) average-case lookup by key? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Hash table with chaining" },
+        { "id": "b", "text": "Hash table with open addressing" },
+        { "id": "c", "text": "Sorted array (binary search)" },
+        { "id": "d", "text": "Balanced BST (e.g., AVL tree)" }
+      ],
+      "correct": ["a", "b"],
+      "explanation": "Both chaining and open-addressing hash tables deliver O(1) average-case lookup by key, assuming a good hash function and a bounded load factor. Sorted array lookup via binary search is O(log n). A balanced BST like AVL also gives O(log n) lookup. The O(1) average claim for hash tables depends on load-factor management and proper resizing."
+    },
+    {
+      "id": "q12",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "Dijkstra's algorithm with a min-heap (priority queue) has what time complexity for a graph with V vertices and E edges?",
+      "options": [
+        { "id": "a", "text": "O(V²)" },
+        { "id": "b", "text": "O(E + V)" },
+        { "id": "c", "text": "O((V + E) log V)" },
+        { "id": "d", "text": "O(VE)" }
+      ],
+      "correct": ["c"],
+      "explanation": "With a binary min-heap, each of the V extract-min operations costs O(log V), and each of the E edge relaxations (decrease-key) also costs O(log V). Total: O((V + E) log V). Without a heap (using a simple array), it's O(V²), which is better for dense graphs. Fibonacci heaps give O(E + V log V)."
+    },
+    {
+      "id": "q13",
+      "topic": "DSA",
+      "type": "multi",
+      "prompt": "Which of the following operations on a doubly linked list run in O(1) time given a pointer to the node? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Delete a node given its pointer" },
+        { "id": "b", "text": "Insert a node before a given node" },
+        { "id": "c", "text": "Find the k-th node from the head" },
+        { "id": "d", "text": "Access the previous node" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "A doubly linked list stores both prev and next pointers. Given a pointer to a node: deletion rewires prev.next and next.prev in O(1); insertion before it similarly rewires pointers in O(1); accessing the previous node is a direct pointer dereference, O(1). Finding the k-th node from the head requires traversal from head, which is O(k)."
+    },
+    {
+      "id": "q14",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "What is the maximum number of edges in an undirected simple graph with 6 vertices?",
+      "options": [
+        { "id": "a", "text": "12" },
+        { "id": "b", "text": "15" },
+        { "id": "c", "text": "30" },
+        { "id": "d", "text": "6" }
+      ],
+      "correct": ["b"],
+      "explanation": "In a simple undirected graph (no self-loops, no multi-edges), every pair of vertices can have at most one edge. The number of pairs of 6 vertices is C(6, 2) = 6×5/2 = 15. This is realized by the complete graph K6."
+    },
+    {
+      "id": "q15",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "The Tower of Hanoi puzzle with n disks requires a minimum of how many moves?",
+      "options": [
+        { "id": "a", "text": "2^n" },
+        { "id": "b", "text": "2^n - 1" },
+        { "id": "c", "text": "n²" },
+        { "id": "d", "text": "n * (n + 1) / 2" }
+      ],
+      "correct": ["b"],
+      "explanation": "The recurrence is T(n) = 2T(n-1) + 1 with T(1) = 1, which solves to T(n) = 2^n − 1. For n = 3, you need 7 moves. For n = 64 (the legend), 2^64 − 1 ≈ 1.8 × 10^19 moves. This is exponential growth, making the puzzle intractable for large n."
+    },
+    {
+      "id": "q16",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "Bucket sort achieves O(n) average-case time under which assumption?",
+      "options": [
+        { "id": "a", "text": "Input is uniformly distributed over a known range" },
+        { "id": "b", "text": "Input is already partially sorted" },
+        { "id": "c", "text": "All input values are integers" },
+        { "id": "d", "text": "Number of buckets equals the number of elements" }
+      ],
+      "correct": ["a"],
+      "explanation": "Bucket sort distributes n elements into n buckets assuming uniform distribution, so each bucket gets O(1) elements on average. Each bucket is then sorted (typically with insertion sort in O(1)). If input is not uniformly distributed, all elements may fall into one bucket, degrading to O(n log n) or worse. The distribution assumption, not the integer restriction, is the key."
+    },
+    {
+      "id": "q17",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "In a min-heap, which operation has the worst-case time complexity of O(log n)?",
+      "options": [
+        { "id": "a", "text": "Finding the minimum element" },
+        { "id": "b", "text": "Inserting a new element" },
+        { "id": "c", "text": "Checking if the heap is empty" },
+        { "id": "d", "text": "Reading the root's left child" }
+      ],
+      "correct": ["b"],
+      "explanation": "Inserting into a min-heap appends the new element at the end and then sifts it up to restore the heap property, which takes O(log n) in the worst case (height of the heap). Finding the minimum is O(1) — it's always the root. Checking if empty and reading a child are O(1) direct operations."
+    },
+    {
+      "id": "q18",
+      "topic": "DSA",
+      "type": "multi",
+      "prompt": "Which of the following graph algorithms can detect negative-weight cycles? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Bellman-Ford algorithm" },
+        { "id": "b", "text": "Dijkstra's algorithm" },
+        { "id": "c", "text": "Floyd-Warshall algorithm" },
+        { "id": "d", "text": "Breadth-first search (BFS)" }
+      ],
+      "correct": ["a", "c"],
+      "explanation": "Bellman-Ford detects negative cycles by checking if a V-th relaxation still improves any distance — if so, a negative cycle exists. Floyd-Warshall can detect them by checking if any diagonal element dist[i][i] becomes negative. Dijkstra's algorithm assumes non-negative weights and does not correctly handle or detect negative cycles. BFS is unweighted and has no concept of negative cycles."
+    },
+    {
+      "id": "q19",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "What is the average-case time complexity of inserting an element into a hash table with chaining when the load factor α is kept constant?",
+      "options": [
+        { "id": "a", "text": "O(α)" },
+        { "id": "b", "text": "O(1)" },
+        { "id": "c", "text": "O(n)" },
+        { "id": "d", "text": "O(log n)" }
+      ],
+      "correct": ["b"],
+      "explanation": "When the load factor α = n/m (elements/buckets) is kept constant — i.e., m grows proportionally with n — the average chain length stays at α = O(1). Insertion goes to the correct bucket in O(1) and prepends to the chain in O(1). This is why hash tables are said to have O(1) amortized insert, assuming a good hash and dynamic resizing."
+    },
+    {
+      "id": "q20",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "Which traversal of a Binary Search Tree visits nodes in ascending sorted order?",
+      "options": [
+        { "id": "a", "text": "Pre-order" },
+        { "id": "b", "text": "In-order" },
+        { "id": "c", "text": "Post-order" },
+        { "id": "d", "text": "Level-order (BFS)" }
+      ],
+      "correct": ["b"],
+      "explanation": "In a BST, in-order traversal (left, root, right) visits keys in ascending order because the BST property ensures all left descendants are smaller and all right descendants are larger than the current node. Pre-order and post-order do not yield sorted order. Level-order produces a breadth-first view."
+    },
+    {
+      "id": "q21",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "What is the time complexity of the following code?",
+      "code": "for i in range(n):\n    j = 1\n    while j < n:\n        j = j * 2",
+      "options": [
+        { "id": "a", "text": "O(n)" },
+        { "id": "b", "text": "O(n log n)" },
+        { "id": "c", "text": "O(n²)" },
+        { "id": "d", "text": "O(log n)" }
+      ],
+      "correct": ["b"],
+      "explanation": "The outer loop runs n times. The inner loop doubles j each iteration, so it runs O(log n) times (j takes values 1, 2, 4, ..., until j ≥ n). Total: O(n * log n) = O(n log n). This is a classic example of recognizing a multiplicative loop inside a linear outer loop."
+    },
+    {
+      "id": "q22",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "In Breadth-First Search (BFS) on an unweighted graph, the shortest path from source s to any reachable vertex v contains:",
+      "options": [
+        { "id": "a", "text": "The fewest edges from s to v" },
+        { "id": "b", "text": "The path with minimum total weight" },
+        { "id": "c", "text": "A path that visits the most vertices" },
+        { "id": "d", "text": "The lexicographically smallest path" }
+      ],
+      "correct": ["a"],
+      "explanation": "BFS explores all vertices at distance k before any vertex at distance k+1, guaranteeing the first time a vertex is reached, it is via the shortest hop-count path. Since edges are unweighted, fewest edges equals shortest path. For weighted graphs, Dijkstra's algorithm is needed. BFS does not minimize weight or lexicographic order."
+    },
+    {
+      "id": "q23",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "The recurrence T(n) = T(n/3) + T(2n/3) + O(n) describes which well-known algorithm?",
+      "options": [
+        { "id": "a", "text": "Binary search" },
+        { "id": "b", "text": "Merge sort on a split of 1/3 and 2/3" },
+        { "id": "c", "text": "Counting sort" },
+        { "id": "d", "text": "Heapsort" }
+      ],
+      "correct": ["b"],
+      "explanation": "This recurrence arises when merge sort (or quicksort) splits the array into unequal portions — one-third and two-thirds. The O(n) term is the merge (or partition) step. This recurrence solves to O(n log n), the same as balanced merge sort, because O(n) work is done at each of the O(log n) levels in the recursion tree."
+    },
+    {
+      "id": "q24",
+      "topic": "DSA",
+      "type": "multi",
+      "prompt": "Which of the following are properties of a Min-Heap? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Every parent node is less than or equal to its children" },
+        { "id": "b", "text": "The minimum element is always at the root" },
+        { "id": "c", "text": "In-order traversal yields elements in sorted order" },
+        { "id": "d", "text": "It is a complete binary tree" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "A min-heap is a complete binary tree where each parent ≤ its children (heap property). This ensures the minimum is always the root, accessible in O(1). Complete binary trees allow array-based storage with no gaps. In-order traversal of a heap does NOT yield sorted order — that property belongs to BSTs."
+    },
+    {
+      "id": "q25",
+      "topic": "DSA",
+      "type": "single",
+      "prompt": "Which algorithm uses a 'visited' set and explores all neighbors of a node before moving to the next level?",
+      "options": [
+        { "id": "a", "text": "Depth-First Search" },
+        { "id": "b", "text": "Breadth-First Search" },
+        { "id": "c", "text": "Dijkstra's algorithm" },
+        { "id": "d", "text": "A* search" }
+      ],
+      "correct": ["b"],
+      "explanation": "BFS uses a queue and a visited set to explore all immediate neighbors of the current node before advancing to nodes at the next depth level. DFS uses a stack (or recursion) and goes as deep as possible before backtracking. Dijkstra and A* use priority queues and visit nodes in order of estimated cost, not strict BFS level order."
+    },
+    {
+      "id": "q26",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "What does the following Python code print?",
+      "code": "class Animal:\n    sound = 'generic'\n    def speak(self):\n        return self.sound\n\nclass Dog(Animal):\n    sound = 'woof'\n\nd = Dog()\nprint(d.speak())",
+      "options": [
+        { "id": "a", "text": "generic" },
+        { "id": "b", "text": "woof" },
+        { "id": "c", "text": "None" },
+        { "id": "d", "text": "AttributeError" }
+      ],
+      "correct": ["b"],
+      "explanation": "In Python, `self.sound` performs attribute lookup on the instance first, then the class. Since `d` is a Dog instance, `self.sound` finds Dog.sound = 'woof' before reaching Animal.sound. Python's method resolution order (MRO) searches the actual runtime class of self, unlike Java field access which uses the declared reference type."
+    },
+    {
+      "id": "q27",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "What does the following C++ code print?",
+      "code": "#include <iostream>\nusing namespace std;\nclass Base {\npublic:\n    virtual void show() { cout << \"Base\" << endl; }\n};\nclass Derived : public Base {\npublic:\n    void show() { cout << \"Derived\" << endl; }\n};\nint main() {\n    Base* ptr = new Derived();\n    ptr->show();\n}",
+      "options": [
+        { "id": "a", "text": "Base" },
+        { "id": "b", "text": "Derived" },
+        { "id": "c", "text": "Compilation error" },
+        { "id": "d", "text": "Undefined behavior" }
+      ],
+      "correct": ["b"],
+      "explanation": "In C++, the `virtual` keyword enables dynamic dispatch. When `show()` is marked virtual in Base, calling ptr->show() resolves at runtime to the most-derived override, which is Derived::show(). Without `virtual`, it would call Base::show() based on the pointer type. This is C++'s implementation of polymorphism via vtables."
+    },
+    {
+      "id": "q28",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "What does the following Python code print?",
+      "code": "class Counter:\n    count = 0\n    def __init__(self):\n        Counter.count += 1\n\na = Counter()\nb = Counter()\nprint(Counter.count, a.count, b.count)",
+      "options": [
+        { "id": "a", "text": "2 2 2" },
+        { "id": "b", "text": "2 1 1" },
+        { "id": "c", "text": "1 1 1" },
+        { "id": "d", "text": "2 0 0" }
+      ],
+      "correct": ["a"],
+      "explanation": "Counter.count is a class variable. Each instantiation increments it via Counter.count += 1. After two instantiations, Counter.count = 2. Accessing a.count and b.count first checks instance __dict__ (empty), then finds the class variable Counter.count = 2. All three expressions refer to the same class attribute."
+    },
+    {
+      "id": "q29",
+      "topic": "OOP",
+      "type": "multi",
+      "prompt": "Which of the following statements about interfaces in Java are TRUE? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "A class can implement multiple interfaces" },
+        { "id": "b", "text": "Interfaces can contain default method implementations since Java 8" },
+        { "id": "c", "text": "Interface methods are always public and abstract unless specified otherwise" },
+        { "id": "d", "text": "Interfaces can be instantiated directly with `new`" }
+      ],
+      "correct": ["a", "b", "c"],
+      "explanation": "Java allows multiple interface implementation, overcoming the single-inheritance limit. Since Java 8, `default` methods in interfaces can have a body, and static methods are also allowed. Interface methods without a modifier are implicitly `public abstract`. Interfaces cannot be instantiated — only concrete classes implementing all methods can be instantiated."
+    },
+    {
+      "id": "q30",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "In Java, which access modifier makes a member visible only within the same class?",
+      "options": [
+        { "id": "a", "text": "protected" },
+        { "id": "b", "text": "default (package-private)" },
+        { "id": "c", "text": "private" },
+        { "id": "d", "text": "public" }
+      ],
+      "correct": ["c"],
+      "explanation": "The `private` modifier restricts visibility to the declaring class only — not subclasses, not other classes in the same package. `protected` allows access within the same package and by subclasses in other packages. Default (no modifier) is package-private. `public` is universally accessible."
+    },
+    {
+      "id": "q31",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "What does the following Java code print?",
+      "code": "class Parent {\n    int value = 100;\n    int getValue() { return value; }\n}\nclass Child extends Parent {\n    int value = 200;\n    int getValue() { return value; }\n}\npublic class Main {\n    public static void main(String[] args) {\n        Parent p = new Child();\n        System.out.println(p.value + \" \" + p.getValue());\n    }\n}",
+      "options": [
+        { "id": "a", "text": "100 200" },
+        { "id": "b", "text": "200 200" },
+        { "id": "c", "text": "100 100" },
+        { "id": "d", "text": "200 100" }
+      ],
+      "correct": ["a"],
+      "explanation": "Field access (p.value) is resolved at compile time using the reference's declared type (Parent), giving 100. Method calls (p.getValue()) use dynamic dispatch — at runtime, p is a Child object, so Child.getValue() runs and returns Child's value = 200. This is a classic Java field hiding vs method overriding distinction."
+    },
+    {
+      "id": "q32",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "Which OOP principle is violated when a subclass's method narrows the accepted parameter type (requires a more specific type than the parent)?",
+      "options": [
+        { "id": "a", "text": "Encapsulation" },
+        { "id": "b", "text": "Liskov Substitution Principle" },
+        { "id": "c", "text": "Open/Closed Principle" },
+        { "id": "d", "text": "Single Responsibility Principle" }
+      ],
+      "correct": ["b"],
+      "explanation": "The Liskov Substitution Principle (LSP) states that objects of a subclass must be substitutable for objects of the superclass without breaking correctness. If a subclass accepts only a narrower set of inputs (contravariance violation), code expecting the parent type would fail when given a subclass instance. LSP requires parameter types to be at least as general (contravariant inputs, covariant outputs)."
+    },
+    {
+      "id": "q33",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "What does the following Java code print?",
+      "code": "public class Main {\n    static int x = 5;\n    public static void modify(int x) {\n        x = x * 2;\n    }\n    public static void main(String[] args) {\n        modify(x);\n        System.out.println(x);\n    }\n}",
+      "options": [
+        { "id": "a", "text": "10" },
+        { "id": "b", "text": "5" },
+        { "id": "c", "text": "0" },
+        { "id": "d", "text": "Compilation error" }
+      ],
+      "correct": ["b"],
+      "explanation": "Java passes primitive types by value. The method parameter `x` is a local copy — modifying it does not affect the static field `x`. After modify(5) returns, the static field is still 5. If you wanted to modify the static field, you would write `Main.x = Main.x * 2` inside the method or remove the parameter shadowing."
+    },
+    {
+      "id": "q34",
+      "topic": "OOP",
+      "type": "multi",
+      "prompt": "Which of the following are valid uses of the `final` keyword in Java? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Preventing a class from being subclassed" },
+        { "id": "b", "text": "Preventing a method from being overridden" },
+        { "id": "c", "text": "Declaring a variable that cannot be reassigned" },
+        { "id": "d", "text": "Making all fields of a class immutable automatically" }
+      ],
+      "correct": ["a", "b", "c"],
+      "explanation": "In Java, `final` serves three purposes: a final class cannot be extended (e.g., String); a final method cannot be overridden in subclasses; a final variable (local, field, or parameter) cannot be reassigned after initialization. However, `final` does NOT automatically make all fields of an object immutable — a final reference can still point to a mutable object whose state can change."
+    },
+    {
+      "id": "q35",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "What is the output of this Python code?",
+      "code": "class Base:\n    def __init__(self):\n        self.value = 10\n        self.setup()\n    def setup(self):\n        self.value *= 2\n\nclass Sub(Base):\n    def setup(self):\n        self.value += 100\n\ns = Sub()\nprint(s.value)",
+      "options": [
+        { "id": "a", "text": "20" },
+        { "id": "b", "text": "110" },
+        { "id": "c", "text": "120" },
+        { "id": "d", "text": "210" }
+      ],
+      "correct": ["b"],
+      "explanation": "When Sub() is created, Python calls Base.__init__ (since Sub doesn't define its own). Inside, self.value = 10, then self.setup() is called. Because self is a Sub instance, Python dispatches to Sub.setup(), which adds 100: value becomes 10 + 100 = 110. Base.setup (which would double) is never called. This demonstrates how polymorphism can cause surprising behavior in constructors."
+    },
+    {
+      "id": "q36",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "What is the difference between method overloading and method overriding?",
+      "options": [
+        { "id": "a", "text": "Overloading is compile-time polymorphism; overriding is runtime polymorphism" },
+        { "id": "b", "text": "Overloading requires inheritance; overriding does not" },
+        { "id": "c", "text": "Overriding is compile-time polymorphism; overloading is runtime polymorphism" },
+        { "id": "d", "text": "Both are resolved at runtime" }
+      ],
+      "correct": ["a"],
+      "explanation": "Method overloading defines multiple methods with the same name but different parameter lists in the same class; the compiler selects the correct overload at compile time (static/compile-time polymorphism). Method overriding redefines a parent method in a subclass; the JVM selects the correct implementation at runtime based on the object's actual type (dynamic/runtime polymorphism)."
+    },
+    {
+      "id": "q37",
+      "topic": "OOP",
+      "type": "multi",
+      "prompt": "Which of the following correctly describe Python's multiple inheritance and MRO (Method Resolution Order)? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Python supports multiple inheritance" },
+        { "id": "b", "text": "The MRO is computed using the C3 linearization algorithm" },
+        { "id": "c", "text": "Python raises an error at class definition if MRO is inconsistent" },
+        { "id": "d", "text": "Python always searches base classes from right to left" }
+      ],
+      "correct": ["a", "b", "c"],
+      "explanation": "Python supports multiple inheritance and uses C3 linearization to compute a consistent MRO, accessible via `ClassName.__mro__`. If the hierarchy creates an inconsistency (a class appears before one of its bases), Python raises a TypeError at class definition time. The search order is generally left-to-right among bases, then depth-first, so option (d) is wrong — it's left-to-right, not right-to-left."
+    },
+    {
+      "id": "q38",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "In Java generics, what does the wildcard `? extends T` mean?",
+      "options": [
+        { "id": "a", "text": "An unknown type that is a supertype of T" },
+        { "id": "b", "text": "An unknown type that is T or a subtype of T" },
+        { "id": "c", "text": "An exact type T only" },
+        { "id": "d", "text": "Any type regardless of relation to T" }
+      ],
+      "correct": ["b"],
+      "explanation": "`? extends T` is an upper-bounded wildcard — it accepts T itself or any class that extends T. This enables covariant reading: you can read elements as T, but cannot safely add elements (you don't know the exact subtype). Conversely, `? super T` is a lower-bounded wildcard — an unknown type that is T or a supertype of T, allowing writes."
+    },
+    {
+      "id": "q39",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "Which design pattern ensures that a class has only one instance and provides a global point of access to it?",
+      "options": [
+        { "id": "a", "text": "Factory Method" },
+        { "id": "b", "text": "Observer" },
+        { "id": "c", "text": "Singleton" },
+        { "id": "d", "text": "Prototype" }
+      ],
+      "correct": ["c"],
+      "explanation": "The Singleton pattern restricts instantiation to one object by making the constructor private and providing a static method that returns the single instance (creating it on first call). It provides a global access point. Factory Method creates objects through a factory interface. Observer is a behavioral pattern for publish-subscribe. Prototype clones existing objects."
+    },
+    {
+      "id": "q40",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "In Java, what happens if a checked exception is thrown in a method but neither caught nor declared in the method signature?",
+      "options": [
+        { "id": "a", "text": "The exception is silently ignored" },
+        { "id": "b", "text": "The program terminates at runtime" },
+        { "id": "c", "text": "A compilation error occurs" },
+        { "id": "d", "text": "The exception is automatically wrapped in RuntimeException" }
+      ],
+      "correct": ["c"],
+      "explanation": "Java's checked exception system requires that any checked exception thrown in a method must either be caught in a try-catch block or declared in the method signature with `throws`. Failure to do either results in a compilation error. Unchecked exceptions (RuntimeException and Error subclasses) do not require this. This compile-time enforcement is a key difference from unchecked exceptions."
+    },
+    {
+      "id": "q41",
+      "topic": "OOP",
+      "type": "multi",
+      "prompt": "Which of the following are true about abstract classes in Java? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "An abstract class can have constructors" },
+        { "id": "b", "text": "An abstract class can have concrete (non-abstract) methods" },
+        { "id": "c", "text": "A class can extend multiple abstract classes" },
+        { "id": "d", "text": "An abstract class cannot be instantiated directly" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "Abstract classes in Java can define constructors (called via super() in subclass constructors), and can have fully implemented concrete methods alongside abstract ones. They cannot be instantiated with `new` — only non-abstract subclasses can. Java enforces single inheritance: a class can extend at most one class (abstract or not). Multiple interface implementation is the workaround for multiple inheritance."
+    },
+    {
+      "id": "q42",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "In Python, what is the purpose of the `__str__` method?",
+      "options": [
+        { "id": "a", "text": "To initialize object attributes" },
+        { "id": "b", "text": "To return a human-readable string representation of the object" },
+        { "id": "c", "text": "To compare two objects for equality" },
+        { "id": "d", "text": "To define the object's hash value" }
+      ],
+      "correct": ["b"],
+      "explanation": "`__str__` defines the informal, human-readable string representation returned by str(obj) and used by print(). `__init__` initializes attributes. `__eq__` defines equality comparison. `__hash__` defines the hash value. Python also has `__repr__` for the unambiguous developer-facing representation, which is used in the REPL and repr()."
+    },
+    {
+      "id": "q43",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "What is a key difference between composition and inheritance in OOP?",
+      "options": [
+        { "id": "a", "text": "Composition creates an 'is-a' relationship; inheritance creates a 'has-a' relationship" },
+        { "id": "b", "text": "Inheritance creates an 'is-a' relationship; composition creates a 'has-a' relationship" },
+        { "id": "c", "text": "Both create the same type of relationship" },
+        { "id": "d", "text": "Composition requires virtual functions; inheritance does not" }
+      ],
+      "correct": ["b"],
+      "explanation": "Inheritance expresses an 'is-a' relationship (Dog is an Animal) and enables polymorphism. Composition expresses a 'has-a' relationship (Car has an Engine) by holding references to other objects. The principle 'favor composition over inheritance' recommends composition for flexibility — it avoids tight coupling and fragile base class problems. Composition changes runtime behavior; inheritance is fixed at compile time."
+    },
+    {
+      "id": "q44",
+      "topic": "OOP",
+      "type": "multi",
+      "prompt": "Which of the following statements about Java string comparison are TRUE? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "`==` compares object references, not content" },
+        { "id": "b", "text": "Two String literals with the same content may share the same object reference due to interning" },
+        { "id": "c", "text": "`new String(\"hi\") == new String(\"hi\")` evaluates to true" },
+        { "id": "d", "text": "`\"hi\".equals(new String(\"hi\"))` evaluates to true" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "`==` compares references (memory addresses), not character content (a). String literals are automatically interned by the JVM — `String s = \"hi\"` reuses the same object from the string pool if the literal already exists (b). `new String(...)` always creates a new heap object, so two such expressions produce different references and `==` returns false (c is false). `equals()` compares character content, so `\"hi\".equals(new String(\"hi\"))` is true (d)."
+    },
+    {
+      "id": "q45",
+      "topic": "OOP",
+      "type": "single",
+      "prompt": "In C++, what is the effect of declaring a destructor as virtual in a base class?",
+      "options": [
+        { "id": "a", "text": "The destructor is called twice — once for base and once for derived" },
+        { "id": "b", "text": "It ensures the derived class destructor is called when deleting via a base pointer" },
+        { "id": "c", "text": "The class can no longer be subclassed" },
+        { "id": "d", "text": "Virtual destructors cause undefined behavior" }
+      ],
+      "correct": ["b"],
+      "explanation": "When deleting an object through a base class pointer, a non-virtual destructor will only call the base destructor, leaking resources from the derived class. Declaring the destructor virtual ensures the derived destructor runs first (via the vtable), then the base destructor — the standard cleanup chain. Not having a virtual destructor when using polymorphic deletion is undefined behavior in C++."
+    },
+    {
+      "id": "q46",
+      "topic": "Networking & Web",
+      "type": "single",
+      "prompt": "A client sends a GET request to `https://api.example.com/items`. The server responds with status 301 and Location: `https://api.example.com/v2/items`. What should the client do?",
+      "options": [
+        { "id": "a", "text": "Retry the original GET request to the same URL" },
+        { "id": "b", "text": "Send GET to the new URL and update bookmarks permanently" },
+        { "id": "c", "text": "Send a POST to the new URL" },
+        { "id": "d", "text": "Display an error to the user" }
+      ],
+      "correct": ["b"],
+      "explanation": "HTTP 301 Moved Permanently means the resource has been permanently relocated to the Location URL. Clients should follow the redirect with GET (in practice) and update any stored or cached references to the new URL. Unlike 302 (temporary), 301 signals that future requests should go directly to the new URL. GET → GET redirect is safe; 308 would be used to preserve a non-GET method permanently."
+    },
+    {
+      "id": "q47",
+      "topic": "Networking & Web",
+      "type": "multi",
+      "prompt": "Which HTTP methods are considered idempotent (i.e., multiple identical requests produce the same result as one)? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "GET" },
+        { "id": "b", "text": "PUT" },
+        { "id": "c", "text": "DELETE" },
+        { "id": "d", "text": "POST" }
+      ],
+      "correct": ["a", "b", "c"],
+      "explanation": "Idempotent means repeating the same request leaves the server in the same state. GET retrieves data and has no side effects. PUT replaces a resource at a URI; repeating it sets the same value. DELETE removes a resource; a second DELETE finds it already gone (404) — the server state is the same. POST typically creates a new resource each time, so it is NOT idempotent. Note: GET and HEAD are also 'safe' (no side effects), but PUT and DELETE are not safe, only idempotent."
+    },
+    {
+      "id": "q48",
+      "topic": "Networking & Web",
+      "type": "single",
+      "prompt": "What is the purpose of the HTTP `Content-Type` header?",
+      "options": [
+        { "id": "a", "text": "Specifies the server's expected response format" },
+        { "id": "b", "text": "Indicates the media type of the request or response body" },
+        { "id": "c", "text": "Controls browser caching behavior" },
+        { "id": "d", "text": "Sets the encoding of the URL parameters" }
+      ],
+      "correct": ["b"],
+      "explanation": "Content-Type tells the recipient what type of data is in the body — e.g., `application/json`, `text/html`, `multipart/form-data`. The sender uses it; the receiver uses it to parse correctly. `Accept` is the counterpart header: the client sends it to tell the server what response formats it understands. Cache control is handled by Cache-Control / Expires headers."
+    },
+    {
+      "id": "q49",
+      "topic": "Networking & Web",
+      "type": "single",
+      "prompt": "What does DNS primarily do?",
+      "options": [
+        { "id": "a", "text": "Encrypts web traffic between client and server" },
+        { "id": "b", "text": "Translates human-readable domain names to IP addresses" },
+        { "id": "c", "text": "Routes packets between different networks" },
+        { "id": "d", "text": "Manages TCP connection handshakes" }
+      ],
+      "correct": ["b"],
+      "explanation": "DNS (Domain Name System) is a hierarchical distributed database that maps domain names (e.g., google.com) to IP addresses (e.g., 142.250.80.46) so humans can use memorable names rather than numeric addresses. Encryption is handled by TLS/SSL. Routing is done by routers using IP. TCP handshakes are handled by the transport layer."
+    },
+    {
+      "id": "q50",
+      "topic": "Networking & Web",
+      "type": "multi",
+      "prompt": "Which of the following are true properties of UDP (User Datagram Protocol)? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "UDP is connectionless — no handshake is performed before sending data" },
+        { "id": "b", "text": "UDP guarantees that packets arrive in order" },
+        { "id": "c", "text": "UDP has lower latency overhead than TCP" },
+        { "id": "d", "text": "UDP supports broadcasting to multiple receivers simultaneously" }
+      ],
+      "correct": ["a", "c", "d"],
+      "explanation": "UDP is connectionless — packets (datagrams) are sent without establishing a session. This makes it faster with lower overhead than TCP, which is why it is used for DNS lookups, VoIP, video streaming, and online games. UDP supports broadcast and multicast, unlike TCP which is point-to-point. UDP does NOT guarantee ordering or delivery — packets may arrive out of order, duplicated, or not at all. Applications needing ordering must handle it themselves (as QUIC and some game protocols do)."
+    },
+    {
+      "id": "q51",
+      "topic": "Networking & Web",
+      "type": "single",
+      "prompt": "What HTTP status code indicates that the request succeeded and a new resource was created?",
+      "options": [
+        { "id": "a", "text": "200 OK" },
+        { "id": "b", "text": "201 Created" },
+        { "id": "c", "text": "204 No Content" },
+        { "id": "d", "text": "202 Accepted" }
+      ],
+      "correct": ["b"],
+      "explanation": "201 Created is returned when a POST or PUT successfully creates a new resource; the response usually includes a Location header with the URI of the new resource. 200 OK means success for read or update operations. 204 No Content means success but there is no body (common for DELETE or PUT). 202 Accepted means the request was accepted for processing but processing is not yet complete."
+    },
+    {
+      "id": "q52",
+      "topic": "Networking & Web",
+      "type": "multi",
+      "prompt": "Which of the following are true about HTTPS compared to HTTP? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "HTTPS encrypts data in transit using TLS" },
+        { "id": "b", "text": "HTTPS prevents man-in-the-middle attacks by authenticating the server via certificates" },
+        { "id": "c", "text": "HTTPS hides the destination domain from ISPs" },
+        { "id": "d", "text": "HTTPS protects against XSS attacks" }
+      ],
+      "correct": ["a", "b"],
+      "explanation": "HTTPS uses TLS (Transport Layer Security) to encrypt data between client and server, protecting against eavesdropping. Server certificates are verified against Certificate Authorities, preventing man-in-the-middle attacks. However, HTTPS does not hide the destination domain — SNI (Server Name Indication) and DNS queries still expose it. XSS is an application-level vulnerability and is not prevented by HTTPS."
+    },
+    {
+      "id": "q53",
+      "topic": "Networking & Web",
+      "type": "single",
+      "prompt": "What is a Cross-Site Request Forgery (CSRF) attack?",
+      "options": [
+        { "id": "a", "text": "Injecting malicious scripts into a webpage viewed by other users" },
+        { "id": "b", "text": "Tricking a user's browser into making unwanted requests to a site where they are authenticated" },
+        { "id": "c", "text": "Intercepting encrypted traffic by downgrading TLS" },
+        { "id": "d", "text": "SQL injection via form fields" }
+      ],
+      "correct": ["b"],
+      "explanation": "CSRF exploits the fact that browsers automatically include cookies (including session tokens) with requests. An attacker crafts a malicious page that causes the victim's browser to send a state-changing request (e.g., transfer money) to a site where the victim is logged in. CSRF tokens, SameSite cookies, and custom request headers are common defenses. Injecting scripts is XSS; intercepting TLS is a downgrade attack."
+    },
+    {
+      "id": "q54",
+      "topic": "Networking & Web",
+      "type": "single",
+      "prompt": "In a RESTful API, which HTTP method is typically used to partially update an existing resource?",
+      "options": [
+        { "id": "a", "text": "PUT" },
+        { "id": "b", "text": "POST" },
+        { "id": "c", "text": "PATCH" },
+        { "id": "d", "text": "UPDATE" }
+      ],
+      "correct": ["c"],
+      "explanation": "PATCH is designed for partial updates — you send only the fields you want to change. PUT is for full replacement: the entire resource is replaced with the request body. POST typically creates new resources. UPDATE is not an HTTP method. In practice, some APIs misuse PUT for partial updates, but the REST convention uses PATCH for partial modification."
+    },
+    {
+      "id": "q55",
+      "topic": "Networking & Web",
+      "type": "single",
+      "prompt": "What is the role of the TCP three-way handshake before data transfer begins?",
+      "options": [
+        { "id": "a", "text": "To compress data for faster transmission" },
+        { "id": "b", "text": "To negotiate encryption keys between client and server" },
+        { "id": "c", "text": "To establish a reliable connection by synchronizing sequence numbers between both parties" },
+        { "id": "d", "text": "To authenticate the user's identity" }
+      ],
+      "correct": ["c"],
+      "explanation": "The three-way handshake (SYN → SYN-ACK → ACK) establishes a TCP connection by synchronizing initial sequence numbers (ISNs) between client and server. This ensures both sides agree on starting points for tracking bytes. It verifies bidirectional communication before data flows. Encryption key negotiation is TLS's job (a separate handshake on top). Authentication is an application-layer concern."
+    },
+    {
+      "id": "q56",
+      "topic": "Networking & Web",
+      "type": "multi",
+      "prompt": "Which HTTP status codes indicate client-side errors? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "400 Bad Request" },
+        { "id": "b", "text": "404 Not Found" },
+        { "id": "c", "text": "503 Service Unavailable" },
+        { "id": "d", "text": "401 Unauthorized" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "HTTP 4xx status codes indicate client-side errors. 400 means the server cannot understand the request due to invalid syntax. 404 means the resource does not exist at that URL. 401 means authentication is required (the name is misleading — it actually means 'unauthenticated'). 503 is a 5xx server-side error indicating the server is temporarily unavailable."
+    },
+    {
+      "id": "q57",
+      "topic": "Networking & Web",
+      "type": "single",
+      "prompt": "What does the `Cache-Control: no-store` header directive instruct?",
+      "options": [
+        { "id": "a", "text": "The cache can store the response but must revalidate before serving it" },
+        { "id": "b", "text": "The response must not be stored in any cache, anywhere" },
+        { "id": "c", "text": "The response is private and only the browser can cache it" },
+        { "id": "d", "text": "The response is valid for 0 seconds" }
+      ],
+      "correct": ["b"],
+      "explanation": "`Cache-Control: no-store` is the strongest privacy directive — neither the browser nor any intermediate proxy may store the response. This is appropriate for sensitive data like banking pages. `no-cache` is weaker: it allows storage but requires revalidation before use. `private` allows browser caching but not shared (proxy) caching. `max-age=0` allows caching but immediately marks it stale."
+    },
+    {
+      "id": "q58",
+      "topic": "Networking & Web",
+      "type": "single",
+      "prompt": "Which layer of the OSI model is responsible for logical addressing (IP addresses) and routing packets between networks?",
+      "options": [
+        { "id": "a", "text": "Data Link Layer (Layer 2)" },
+        { "id": "b", "text": "Network Layer (Layer 3)" },
+        { "id": "c", "text": "Transport Layer (Layer 4)" },
+        { "id": "d", "text": "Session Layer (Layer 5)" }
+      ],
+      "correct": ["b"],
+      "explanation": "Layer 3 (Network) handles logical addressing via IP addresses and routing packets across different networks using routers. Layer 2 (Data Link) handles physical addressing via MAC addresses and communication on the same network segment. Layer 4 (Transport) handles end-to-end delivery, reliability (TCP), and ports. Layer 5 (Session) manages sessions/connections between applications."
+    },
+    {
+      "id": "q59",
+      "topic": "Networking & Web",
+      "type": "single",
+      "prompt": "What is the purpose of the HTTP `Authorization` header?",
+      "options": [
+        { "id": "a", "text": "To specify the format of the response body" },
+        { "id": "b", "text": "To send credentials allowing the client to authenticate with the server" },
+        { "id": "c", "text": "To indicate the server's supported authentication methods" },
+        { "id": "d", "text": "To set permissions on the requested resource" }
+      ],
+      "correct": ["b"],
+      "explanation": "The `Authorization` header carries credentials (e.g., `Bearer <token>`, `Basic <base64>`) from the client to the server. When the server responds with 401 Unauthorized, it includes a `WWW-Authenticate` header telling the client which authentication schemes are supported. The Authorization header is the client's answer to that challenge."
+    },
+    {
+      "id": "q60",
+      "topic": "Networking & Web",
+      "type": "multi",
+      "prompt": "Which of the following correctly describe the CORS (Cross-Origin Resource Sharing) mechanism? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "CORS is enforced by the browser, not the server" },
+        { "id": "b", "text": "The server must include the correct Access-Control-Allow-Origin header to permit cross-origin requests" },
+        { "id": "c", "text": "Preflight requests use the OPTIONS method" },
+        { "id": "d", "text": "CORS prevents all cross-origin requests by default" }
+      ],
+      "correct": ["a", "b", "c"],
+      "explanation": "CORS is a browser security feature — the browser checks the server's response headers and blocks responses that lack proper CORS headers. The server declares allowed origins via `Access-Control-Allow-Origin`. For non-simple requests, the browser first sends an OPTIONS preflight to confirm the server permits the actual request. CORS doesn't prevent all cross-origin requests — it allows them when the server explicitly permits them."
+    },
+    {
+      "id": "q61",
+      "topic": "Database",
+      "type": "single",
+      "prompt": "Which JOIN type returns all rows from the left table and matching rows from the right table, with NULLs for non-matching right rows?",
+      "options": [
+        { "id": "a", "text": "INNER JOIN" },
+        { "id": "b", "text": "RIGHT OUTER JOIN" },
+        { "id": "c", "text": "LEFT OUTER JOIN" },
+        { "id": "d", "text": "CROSS JOIN" }
+      ],
+      "correct": ["c"],
+      "explanation": "A LEFT OUTER JOIN (or LEFT JOIN) returns every row from the left table. For rows that have a match in the right table, the right columns are populated; for rows with no match, right-side columns are NULL. RIGHT JOIN mirrors this for the right table. INNER JOIN returns only matching rows. CROSS JOIN returns all combinations (Cartesian product)."
+    },
+    {
+      "id": "q62",
+      "topic": "Database",
+      "type": "single",
+      "prompt": "A table `products` has columns: id, name, category, price. Which query finds the most expensive product in each category?",
+      "code": "SELECT category, name, MAX(price)\nFROM products\nGROUP BY category;",
+      "options": [
+        { "id": "a", "text": "This query is correct and will return the right product names" },
+        { "id": "b", "text": "This query has an error because 'name' is not in GROUP BY or an aggregate function" },
+        { "id": "c", "text": "This query returns categories with the minimum price" },
+        { "id": "d", "text": "This query works only if the price column is indexed" }
+      ],
+      "correct": ["b"],
+      "explanation": "In standard SQL, every column in SELECT must either appear in GROUP BY or be wrapped in an aggregate function. Here, `name` is neither — this is an error in strict SQL (PostgreSQL, MSSQL, SQLite). MySQL's ONLY_FULL_GROUP_BY mode would also reject it. The correct approach to get the product name alongside its category max is to use a subquery, window function, or a self-join."
+    },
+    {
+      "id": "q63",
+      "topic": "Database",
+      "type": "multi",
+      "prompt": "Which of the following anomalies are prevented by the SERIALIZABLE isolation level? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Dirty reads (reading uncommitted data from another transaction)" },
+        { "id": "b", "text": "Non-repeatable reads (same row read twice gives different values)" },
+        { "id": "c", "text": "Phantom reads (new rows appear in a repeated range query)" },
+        { "id": "d", "text": "Deadlocks between transactions" }
+      ],
+      "correct": ["a", "b", "c"],
+      "explanation": "SERIALIZABLE is the strictest isolation level and prevents all three read anomalies: dirty reads (reading uncommitted data), non-repeatable reads (a row changes between two reads in the same transaction), and phantom reads (new rows matching a query appear between two range reads). Deadlocks, however, are a scheduling problem that can occur at any isolation level — SERIALIZABLE may actually increase deadlocks by acquiring more locks. Deadlock prevention requires different mechanisms (timeouts, ordering)."
+    },
+    {
+      "id": "q64",
+      "topic": "Database",
+      "type": "single",
+      "prompt": "A table `course_enrollments` has columns: student_id, course_id, semester, grade. Which normal form is violated if the table has a transitive dependency: student_id → student_email AND student_email is stored in this table?",
+      "options": [
+        { "id": "a", "text": "1NF" },
+        { "id": "b", "text": "2NF" },
+        { "id": "c", "text": "3NF" },
+        { "id": "d", "text": "BCNF" }
+      ],
+      "correct": ["c"],
+      "explanation": "Third Normal Form (3NF) requires that no non-key attribute is transitively dependent on the primary key via another non-key attribute. If student_email depends on student_id (not on the full key {student_id, course_id, semester}), and it's stored here, it's a transitive dependency violating 3NF. The fix is to move student_email to a Students table. 2NF is violated by partial dependencies on part of a composite key."
+    },
+    {
+      "id": "q65",
+      "topic": "Database",
+      "type": "single",
+      "prompt": "What does the following SQL query return?",
+      "code": "SELECT c.name, COUNT(o.id) AS order_count\nFROM customers c\nLEFT JOIN orders o ON c.id = o.customer_id\nGROUP BY c.id, c.name\nHAVING COUNT(o.id) = 0;",
+      "options": [
+        { "id": "a", "text": "All customers who have placed at least one order" },
+        { "id": "b", "text": "Customers with exactly zero orders (no orders on record)" },
+        { "id": "c", "text": "An error, because you cannot use HAVING with LEFT JOIN" },
+        { "id": "d", "text": "The customer with the most orders" }
+      ],
+      "correct": ["b"],
+      "explanation": "The LEFT JOIN ensures all customers appear even if they have no orders (NULL on the orders side). For customers with no orders, COUNT(o.id) counts non-NULL order ids, which is 0 (NULLs are not counted). HAVING COUNT(o.id) = 0 filters to only those customers. This is a common pattern for finding 'orphan' or unmatched records on the left side."
+    },
+    {
+      "id": "q66",
+      "topic": "Database",
+      "type": "multi",
+      "prompt": "Which of the following correctly describe database indexes? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Indexes speed up SELECT queries by reducing the rows scanned" },
+        { "id": "b", "text": "Indexes slow down INSERT, UPDATE, and DELETE operations because the index must be maintained" },
+        { "id": "c", "text": "A table can have at most one index" },
+        { "id": "d", "text": "A composite index on (A, B) can speed up queries filtering on A alone" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "Indexes allow the database to find matching rows quickly (e.g., B-tree allows O(log n) lookup) instead of scanning all rows. Write operations must update all relevant indexes, adding overhead. A table can have multiple indexes. A composite index on (A, B) is usable for queries filtering on A (the leftmost prefix) due to the leftmost prefix rule, but not for queries filtering only on B."
+    },
+    {
+      "id": "q67",
+      "topic": "Database",
+      "type": "multi",
+      "prompt": "Which of the following statements about the SQL TRUNCATE statement are TRUE? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "TRUNCATE removes all rows from a table faster than DELETE with no WHERE clause" },
+        { "id": "b", "text": "TRUNCATE can include a WHERE clause to remove specific rows" },
+        { "id": "c", "text": "In many databases, TRUNCATE is a DDL statement and cannot be rolled back without explicit transaction wrapping" },
+        { "id": "d", "text": "TRUNCATE resets auto-increment counters in most databases" }
+      ],
+      "correct": ["a", "c", "d"],
+      "explanation": "TRUNCATE removes all rows in a single operation by deallocating data pages, making it much faster than a full-table DELETE which logs each row (a). TRUNCATE does NOT support a WHERE clause — it always removes all rows (b is false). TRUNCATE is classified as DDL in most databases (Oracle, MySQL by default) and auto-commits, so it cannot be rolled back outside an explicit transaction block (c). Most databases (MySQL, PostgreSQL) reset the auto-increment/serial counter to its starting value after TRUNCATE (d)."
+    },
+    {
+      "id": "q68",
+      "topic": "Database",
+      "type": "single",
+      "prompt": "In what scenario is a NoSQL document store (e.g., MongoDB) generally preferred over a relational SQL database?",
+      "options": [
+        { "id": "a", "text": "When data has complex many-to-many relationships requiring joins" },
+        { "id": "b", "text": "When full ACID transactions across multiple entities are critical" },
+        { "id": "c", "text": "When schema is flexible and evolving, and data is document-shaped (nested JSON)" },
+        { "id": "d", "text": "When data must be normalized to avoid redundancy" }
+      ],
+      "correct": ["c"],
+      "explanation": "Document stores excel when data is naturally hierarchical or document-shaped (e.g., user profiles with nested addresses, orders with line items), schemas evolve rapidly, or horizontal scaling is a priority. SQL databases are better when strong consistency, complex multi-table joins, normalization, and ACID guarantees matter. Modern SQL databases also support JSON columns, blurring this distinction."
+    },
+    {
+      "id": "q69",
+      "topic": "Database",
+      "type": "single",
+      "prompt": "What does a UNIQUE constraint on a column guarantee?",
+      "options": [
+        { "id": "a", "text": "The column cannot be NULL" },
+        { "id": "b", "text": "All values in the column are distinct (no duplicates), though NULLs may be allowed" },
+        { "id": "c", "text": "The column is the primary key" },
+        { "id": "d", "text": "The column values are indexed in descending order" }
+      ],
+      "correct": ["b"],
+      "explanation": "A UNIQUE constraint ensures no two rows have the same value in that column. In most SQL databases (PostgreSQL, MySQL, SQL Server), multiple NULLs are allowed in a UNIQUE column because NULL is not equal to anything, including itself. A PRIMARY KEY is essentially UNIQUE + NOT NULL. UNIQUE constraints are usually backed by an index but do not dictate sort order."
+    },
+    {
+      "id": "q70",
+      "topic": "Database",
+      "type": "multi",
+      "prompt": "A table `inventory` has: (warehouse_id, product_id, quantity). Which of the following are valid ways to define the primary key? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "A composite primary key on (warehouse_id, product_id)" },
+        { "id": "b", "text": "A surrogate auto-increment integer column 'id' as primary key" },
+        { "id": "c", "text": "Using warehouse_id alone as primary key" },
+        { "id": "d", "text": "Using product_id alone as primary key" }
+      ],
+      "correct": ["a", "b"],
+      "explanation": "A composite key on (warehouse_id, product_id) is the natural key — it uniquely identifies a row since each warehouse-product pair appears once. An auto-increment surrogate key is also valid and common for simplicity. Using warehouse_id or product_id alone would not work — there can be multiple products in one warehouse (non-unique warehouse_id) and one product in multiple warehouses (non-unique product_id)."
+    },
+    {
+      "id": "q71",
+      "topic": "Database",
+      "type": "single",
+      "prompt": "What SQL window function would you use to assign a unique rank to each row within partitions without gaps (i.e., tied values get the same rank, and the next rank is consecutive)?",
+      "options": [
+        { "id": "a", "text": "RANK()" },
+        { "id": "b", "text": "ROW_NUMBER()" },
+        { "id": "c", "text": "DENSE_RANK()" },
+        { "id": "d", "text": "NTILE()" }
+      ],
+      "correct": ["c"],
+      "explanation": "DENSE_RANK() assigns the same rank to tied rows and increments by 1 for the next rank (no gaps). For example, two rows tied at rank 2 both get rank 2, and the next is rank 3. RANK() also ties equal rows but skips ranks (two rows at rank 2 → next is rank 4). ROW_NUMBER() assigns unique sequential integers regardless of ties. NTILE(n) divides rows into n equal-sized buckets."
+    },
+    {
+      "id": "q72",
+      "topic": "Database",
+      "type": "single",
+      "prompt": "What is the purpose of a database view?",
+      "options": [
+        { "id": "a", "text": "To physically store aggregated data for faster queries" },
+        { "id": "b", "text": "To provide a virtual table defined by a SQL query, simplifying access and adding a security layer" },
+        { "id": "c", "text": "To create a backup of a table at a point in time" },
+        { "id": "d", "text": "To enforce referential integrity between tables" }
+      ],
+      "correct": ["b"],
+      "explanation": "A view is a named SQL query stored in the database that can be queried like a table. It simplifies complex joins, hides implementation details, and can restrict column access for security. By default, views do not store data — they re-execute the query each time. Materialized views are the exception, physically storing results for performance. Foreign keys handle referential integrity."
+    },
+    {
+      "id": "q73",
+      "topic": "Database",
+      "type": "single",
+      "prompt": "Given the query below, which isolation issue can occur if the transaction isolation level is READ UNCOMMITTED?",
+      "code": "-- Transaction A:\nSELECT balance FROM accounts WHERE id = 1;\n-- (Transaction B modifies balance but hasn't committed)\nSELECT balance FROM accounts WHERE id = 1;",
+      "options": [
+        { "id": "a", "text": "Phantom read" },
+        { "id": "b", "text": "Dirty read" },
+        { "id": "c", "text": "Lost update" },
+        { "id": "d", "text": "Deadlock" }
+      ],
+      "correct": ["b"],
+      "explanation": "READ UNCOMMITTED allows a transaction to read data modified by another transaction that has not yet committed. If Transaction B modifies and then rolls back, Transaction A would have read values that never truly existed — a dirty read. Phantom reads involve new rows appearing between queries. Lost update involves two transactions overwriting each other's changes. Deadlock is a scheduling issue, not a read anomaly."
+    },
+    {
+      "id": "q74",
+      "topic": "Database",
+      "type": "single",
+      "prompt": "What does the SQL COALESCE function do?",
+      "options": [
+        { "id": "a", "text": "Concatenates two strings together" },
+        { "id": "b", "text": "Returns the first non-NULL value from its list of arguments" },
+        { "id": "c", "text": "Converts a value to a specified data type" },
+        { "id": "d", "text": "Returns NULL if two expressions are equal" }
+      ],
+      "correct": ["b"],
+      "explanation": "COALESCE(expr1, expr2, ..., exprN) evaluates arguments left to right and returns the first one that is not NULL. If all are NULL, it returns NULL. It's commonly used to substitute a default value: `COALESCE(nickname, first_name, 'Anonymous')`. NULLIF(x, y) returns NULL if x = y — the opposite. CAST converts types. String concatenation uses || or CONCAT."
+    },
+    {
+      "id": "q75",
+      "topic": "Database",
+      "type": "multi",
+      "prompt": "Which of the following are characteristics of a FOREIGN KEY constraint? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "It enforces referential integrity between two tables" },
+        { "id": "b", "text": "It prevents inserting a value in the child table that does not exist in the parent table" },
+        { "id": "c", "text": "It automatically creates an index on the foreign key column in all databases" },
+        { "id": "d", "text": "ON DELETE CASCADE automatically deletes child rows when the parent row is deleted" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "Foreign keys enforce referential integrity: you cannot insert a child row with a reference that doesn't exist in the parent, and you cannot delete a parent row that has child references (unless CASCADE or SET NULL is configured). ON DELETE CASCADE propagates deletions to child rows. Note that not all databases automatically index foreign key columns — MySQL's InnoDB does, but PostgreSQL requires you to create the index explicitly."
+    },
+    {
+      "id": "q76",
+      "topic": "Operating Systems",
+      "type": "single",
+      "prompt": "What is the main difference between a process and a thread?",
+      "options": [
+        { "id": "a", "text": "Threads have separate memory spaces; processes share memory" },
+        { "id": "b", "text": "Processes have separate memory spaces; threads within a process share the same memory space" },
+        { "id": "c", "text": "Processes are always faster than threads" },
+        { "id": "d", "text": "Threads can run on multiple CPUs; processes cannot" }
+      ],
+      "correct": ["b"],
+      "explanation": "A process is an independent program with its own memory space (virtual address space), file handles, and resources. Threads are lighter units of execution that live within a process and share its address space, file descriptors, and heap — making communication cheaper but requiring synchronization. Context switching between threads is faster than between processes. Both processes and threads can run on multiple CPUs."
+    },
+    {
+      "id": "q77",
+      "topic": "Operating Systems",
+      "type": "single",
+      "prompt": "Which CPU scheduling algorithm minimizes average waiting time for a known set of CPU-burst lengths?",
+      "options": [
+        { "id": "a", "text": "Round Robin (RR)" },
+        { "id": "b", "text": "First-Come, First-Served (FCFS)" },
+        { "id": "c", "text": "Shortest Job First (SJF)" },
+        { "id": "d", "text": "Priority Scheduling" }
+      ],
+      "correct": ["c"],
+      "explanation": "Shortest Job First (SJF) is provably optimal for minimizing average waiting time when burst lengths are known in advance. It schedules the shortest remaining burst next. Its drawback is that it requires knowing burst lengths ahead of time (impractical without prediction) and can cause starvation of long jobs. Round Robin is fair but not optimal. FCFS suffers from the convoy effect."
+    },
+    {
+      "id": "q78",
+      "topic": "Operating Systems",
+      "type": "single",
+      "prompt": "What is virtual memory?",
+      "options": [
+        { "id": "a", "text": "RAM installed on the GPU" },
+        { "id": "b", "text": "A memory management technique that gives each process the illusion of a large private address space using disk as an extension of RAM" },
+        { "id": "c", "text": "Memory shared between all processes on a system" },
+        { "id": "d", "text": "A secondary cache between RAM and the CPU" }
+      ],
+      "correct": ["b"],
+      "explanation": "Virtual memory abstracts the physical memory by providing each process with a large private address space. The OS maps virtual pages to physical frames (paging), and pages not currently in RAM can reside on disk (swap space). This allows running programs larger than physical RAM and provides process isolation. Page faults bring needed pages from disk into RAM on demand."
+    },
+    {
+      "id": "q79",
+      "topic": "Operating Systems",
+      "type": "multi",
+      "prompt": "Which of the following are valid strategies for deadlock prevention? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Requiring all processes to request all resources they need at once (no hold-and-wait)" },
+        { "id": "b", "text": "Allowing preemption — forcibly taking resources from a blocked process" },
+        { "id": "c", "text": "Imposing a total ordering on resource types and requiring acquisition in order" },
+        { "id": "d", "text": "Running more threads simultaneously to dilute resource contention" }
+      ],
+      "correct": ["a", "b", "c"],
+      "explanation": "The four Coffman conditions for deadlock are mutual exclusion, hold-and-wait, no preemption, and circular wait. Preventing any one of them prevents deadlock. (a) eliminates hold-and-wait. (b) eliminates no-preemption. (c) eliminates circular wait by enforcing a total order. (d) adding more threads increases contention and does not prevent deadlock — it can worsen it."
+    },
+    {
+      "id": "q80",
+      "topic": "Operating Systems",
+      "type": "single",
+      "prompt": "Which page replacement algorithm suffers most from Belady's anomaly (more page frames can cause more page faults)?",
+      "options": [
+        { "id": "a", "text": "LRU (Least Recently Used)" },
+        { "id": "b", "text": "Optimal (OPT)" },
+        { "id": "c", "text": "FIFO (First-In, First-Out)" },
+        { "id": "d", "text": "LFU (Least Frequently Used)" }
+      ],
+      "correct": ["c"],
+      "explanation": "Belady's anomaly occurs with FIFO: adding more physical frames can paradoxically increase the number of page faults. This is counterintuitive. LRU and OPT are 'stack algorithms' (adding a frame always includes all pages a smaller frame set would hold), which guarantees they cannot exhibit Belady's anomaly. LFU is not immune but is not classically associated with Belady's anomaly."
+    },
+    {
+      "id": "q81",
+      "topic": "Operating Systems",
+      "type": "multi",
+      "prompt": "Which of the following statements correctly describe semaphores? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "A counting semaphore can allow multiple threads to access a resource pool simultaneously" },
+        { "id": "b", "text": "Any thread can signal (release) a semaphore, not just the thread that waited on it" },
+        { "id": "c", "text": "A semaphore must be released by the same thread that acquired it (ownership)" },
+        { "id": "d", "text": "A binary semaphore (value 0 or 1) can be used to signal between a producer and consumer thread" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "A counting semaphore with initial value N controls access to N identical resources simultaneously — each wait() decrements the count, each signal() increments it (a). Unlike a mutex, a semaphore has no ownership: any thread can call signal(), which makes it ideal for signaling across threads (e.g., producer posts, consumer waits) (b). (c) describes a mutex, not a semaphore — ownership is the key distinguishing feature. Binary semaphores initialized to 0 are commonly used for thread synchronization: producer signals, consumer waits (d)."
+    },
+    {
+      "id": "q82",
+      "topic": "Operating Systems",
+      "type": "single",
+      "prompt": "What is the difference between preemptive and non-preemptive scheduling?",
+      "options": [
+        { "id": "a", "text": "Preemptive scheduling runs one process until completion; non-preemptive can interrupt it" },
+        { "id": "b", "text": "Preemptive scheduling can interrupt a running process to allocate CPU to another; non-preemptive lets a process run until it voluntarily yields" },
+        { "id": "c", "text": "Non-preemptive scheduling is only used in real-time systems" },
+        { "id": "d", "text": "Preemptive scheduling disables interrupts during critical sections" }
+      ],
+      "correct": ["b"],
+      "explanation": "In preemptive scheduling, the OS can forcibly remove the CPU from a running process (e.g., when a higher-priority process arrives or a time quantum expires). In non-preemptive (cooperative) scheduling, a process holds the CPU until it blocks, exits, or voluntarily yields. Preemptive scheduling is more responsive but requires careful synchronization. Most modern OSes use preemptive scheduling."
+    },
+    {
+      "id": "q83",
+      "topic": "Operating Systems",
+      "type": "multi",
+      "prompt": "Which of the following are true about the TLB (Translation Lookaside Buffer)? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "The TLB caches recent virtual-to-physical address translations" },
+        { "id": "b", "text": "A TLB miss is resolved by walking the page table in memory" },
+        { "id": "c", "text": "TLB entries are shared between all processes without flushing" },
+        { "id": "d", "text": "The TLB is typically implemented in hardware as part of the MMU" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "The TLB (Translation Lookaside Buffer) is a fast hardware cache in the MMU that stores recently used page table entries (virtual page → physical frame), avoiding expensive page table walks on every memory access (a, d). On a TLB miss, the hardware or OS performs a page table walk to find the mapping and loads it into the TLB (b). TLB entries are NOT automatically shared between processes — on a context switch, the TLB must be flushed (or tagged with Address Space IDs/ASIDs) because different processes have different page tables (c is false)."
+    },
+    {
+      "id": "q84",
+      "topic": "Operating Systems",
+      "type": "multi",
+      "prompt": "Which of the following are characteristics of a context switch? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "The CPU saves the state (registers, program counter) of the current process" },
+        { "id": "b", "text": "Context switches are instantaneous and have no overhead" },
+        { "id": "c", "text": "The CPU loads the previously saved state of the next process to run" },
+        { "id": "d", "text": "The OS scheduler decides which process to run next during a context switch" }
+      ],
+      "correct": ["a", "c", "d"],
+      "explanation": "A context switch saves the CPU state of the outgoing process (in its PCB — Process Control Block) and restores the state of the incoming process. The scheduler runs during this window to choose the next process. Context switches are not free — they involve saving/restoring registers, flushing TLB entries (for process switches), and potential cache pollution. This overhead motivates keeping time quanta long enough to amortize the cost."
+    },
+    {
+      "id": "q85",
+      "topic": "Operating Systems",
+      "type": "single",
+      "prompt": "What is the key difference between internal and external fragmentation in memory management?",
+      "options": [
+        { "id": "a", "text": "Internal fragmentation is wasted space inside allocated regions; external fragmentation is free space scattered between allocations" },
+        { "id": "b", "text": "External fragmentation is wasted space inside allocated regions; internal fragmentation is free space outside them" },
+        { "id": "c", "text": "Both refer to the same phenomenon in different contexts" },
+        { "id": "d", "text": "Internal fragmentation only occurs in segmentation; external only in paging" }
+      ],
+      "correct": ["a"],
+      "explanation": "Internal fragmentation is wasted space within an allocated memory block — e.g., a process needing 5 KB allocated a 8 KB page wastes 3 KB internally. External fragmentation is when total free memory is sufficient but split into small non-contiguous chunks that cannot satisfy a large request. Paging eliminates external fragmentation (fixed-size pages) but causes internal fragmentation; segmentation causes external fragmentation."
+    },
+    {
+      "id": "q86",
+      "topic": "AI / ML basics",
+      "type": "single",
+      "prompt": "A decision tree model achieves 100% accuracy on training data but only 62% on test data. What is this phenomenon called?",
+      "options": [
+        { "id": "a", "text": "Underfitting" },
+        { "id": "b", "text": "Overfitting" },
+        { "id": "c", "text": "Data leakage" },
+        { "id": "d", "text": "Bias-variance tradeoff" }
+      ],
+      "correct": ["b"],
+      "explanation": "Overfitting occurs when a model memorizes the training data including its noise, achieving very high training accuracy but failing to generalize to unseen data. A fully grown decision tree with no pruning can perfectly fit training data (100%) but fail to generalize. Underfitting is the opposite — poor performance on both train and test. Data leakage is when test information bleeds into training."
+    },
+    {
+      "id": "q87",
+      "topic": "AI / ML basics",
+      "type": "multi",
+      "prompt": "Which of the following correctly describe the sigmoid function used in logistic regression? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "The sigmoid output is always in the range (0, 1)" },
+        { "id": "b", "text": "The sigmoid output can be interpreted as a probability" },
+        { "id": "c", "text": "The sigmoid function is used to convert a continuous score into a binary class label directly without a threshold" },
+        { "id": "d", "text": "The decision boundary of logistic regression is where the sigmoid output equals 0.5" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "The sigmoid σ(z) = 1/(1 + e^(-z)) always outputs values strictly between 0 and 1, making it suitable for probability estimates (a, b). The decision boundary occurs where z = 0, which makes σ(z) = 0.5; points with σ > 0.5 are classified as positive (d). The sigmoid does not directly output a hard class label — a threshold (typically 0.5) is applied separately to produce a binary prediction, so (c) is false."
+    },
+    {
+      "id": "q88",
+      "topic": "AI / ML basics",
+      "type": "single",
+      "prompt": "What does the k in k-Nearest Neighbors (k-NN) represent?",
+      "options": [
+        { "id": "a", "text": "The number of clusters to form" },
+        { "id": "b", "text": "The number of nearest training examples to consider when classifying a new point" },
+        { "id": "c", "text": "The number of features used in the model" },
+        { "id": "d", "text": "The learning rate" }
+      ],
+      "correct": ["b"],
+      "explanation": "In k-NN, classifying a new point involves finding the k closest training examples (by distance, often Euclidean) and taking a majority vote for classification (or average for regression). Small k (e.g., k=1) is sensitive to noise (low bias, high variance). Large k smooths predictions but may miss local patterns (high bias, lower variance). Note that the k here is unrelated to k in k-means."
+    },
+    {
+      "id": "q89",
+      "topic": "AI / ML basics",
+      "type": "multi",
+      "prompt": "Which of the following are unsupervised learning tasks? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Grouping news articles by topic without predefined categories" },
+        { "id": "b", "text": "Predicting whether a loan applicant will default based on labeled historical data" },
+        { "id": "c", "text": "Reducing a 100-feature dataset to 2 dimensions for visualization" },
+        { "id": "d", "text": "Detecting unusual network traffic patterns without labeled anomalies" }
+      ],
+      "correct": ["a", "c", "d"],
+      "explanation": "Unsupervised learning finds patterns in unlabeled data. (a) is clustering (e.g., k-means, LDA). (c) is dimensionality reduction (e.g., PCA). (d) is anomaly detection, which can be unsupervised (learn the normal distribution, flag outliers). (b) is supervised classification — historical labels (defaulted/not) are used to train. The presence of labeled outcome data is the defining criterion for supervised learning."
+    },
+    {
+      "id": "q90",
+      "topic": "AI / ML basics",
+      "type": "single",
+      "prompt": "You train a spam classifier and achieve precision = 0.90 and recall = 0.60. What does a recall of 0.60 mean?",
+      "options": [
+        { "id": "a", "text": "60% of emails the classifier flagged as spam are actually spam" },
+        { "id": "b", "text": "60% of actual spam emails were correctly identified as spam" },
+        { "id": "c", "text": "40% of non-spam emails were incorrectly flagged as spam" },
+        { "id": "d", "text": "The model is correct 60% of the time overall" }
+      ],
+      "correct": ["b"],
+      "explanation": "Recall (sensitivity) = TP / (TP + FN) = the fraction of actual positives that were correctly detected. Recall = 0.60 means the model catches 60% of real spam but misses 40% (false negatives). Precision = TP / (TP + FP) = 0.90 means 90% of flagged emails are truly spam. Overall accuracy is a different metric. These metrics trade off — increasing threshold raises precision but lowers recall."
+    },
+    {
+      "id": "q91",
+      "topic": "AI / ML basics",
+      "type": "single",
+      "prompt": "What is the purpose of a validation set in machine learning?",
+      "options": [
+        { "id": "a", "text": "To train the model parameters" },
+        { "id": "b", "text": "To provide the final unbiased performance estimate of the deployed model" },
+        { "id": "c", "text": "To tune hyperparameters and select the best model without touching the test set" },
+        { "id": "d", "text": "To augment the training data with additional examples" }
+      ],
+      "correct": ["c"],
+      "explanation": "The validation set is used during development to evaluate different model configurations (hyperparameters, architectures) and choose the best one. Using the test set for these decisions would leak information and give an overly optimistic performance estimate. The test set is reserved for the final, single evaluation of the chosen model. The training set is used to fit model parameters."
+    },
+    {
+      "id": "q92",
+      "topic": "AI / ML basics",
+      "type": "single",
+      "prompt": "In a neural network, what does the activation function in a hidden layer primarily do?",
+      "options": [
+        { "id": "a", "text": "Normalizes the input data to have zero mean" },
+        { "id": "b", "text": "Introduces non-linearity, enabling the network to learn complex patterns" },
+        { "id": "c", "text": "Reduces the dimensionality of the layer's output" },
+        { "id": "d", "text": "Controls the learning rate of the optimizer" }
+      ],
+      "correct": ["b"],
+      "explanation": "Without activation functions, a neural network with any number of layers would reduce to a single linear transformation (composition of linear functions is linear). Activation functions like ReLU, sigmoid, and tanh introduce non-linearity, allowing networks to approximate arbitrarily complex functions (universal approximation theorem). Data normalization is done by batch norm or preprocessing. Dropout reduces dimensions conceptually."
+    },
+    {
+      "id": "q93",
+      "topic": "AI / ML basics",
+      "type": "multi",
+      "prompt": "Which of the following techniques help reduce overfitting in a machine learning model? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "Adding more training data" },
+        { "id": "b", "text": "Dropout regularization in neural networks" },
+        { "id": "c", "text": "Increasing model complexity (more layers/features)" },
+        { "id": "d", "text": "L2 regularization (weight decay)" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "Overfitting occurs when a model is too complex relative to the training data. More data gives the model more signal and less opportunity to memorize noise. Dropout randomly disables neurons during training, preventing co-adaptation and acting as ensemble-like regularization. L2 regularization penalizes large weights in the loss function, encouraging simpler models. Increasing model complexity makes overfitting worse, not better."
+    },
+    {
+      "id": "q94",
+      "topic": "AI / ML basics",
+      "type": "single",
+      "prompt": "Linear regression assumes which relationship between input features and the output?",
+      "options": [
+        { "id": "a", "text": "A polynomial relationship of degree ≥ 2" },
+        { "id": "b", "text": "A linear (straight-line) relationship: output = w₁x₁ + w₂x₂ + ... + b" },
+        { "id": "c", "text": "A logarithmic relationship" },
+        { "id": "d", "text": "No relationship is assumed — it is non-parametric" }
+      ],
+      "correct": ["b"],
+      "explanation": "Linear regression models the output as a weighted sum of input features plus a bias term: ŷ = w₁x₁ + w₂x₂ + ... + wₙxₙ + b. It assumes a linear relationship in the parameters (though features can be polynomial-transformed). Logistic regression is for classification despite the name. Polynomial features can extend linear regression to fit curves but the model is still linear in parameters."
+    },
+    {
+      "id": "q95",
+      "topic": "AI / ML basics",
+      "type": "single",
+      "prompt": "What does 'gradient descent' do in training a machine learning model?",
+      "options": [
+        { "id": "a", "text": "Randomly searches the parameter space for the best weights" },
+        { "id": "b", "text": "Iteratively adjusts model parameters in the direction that reduces the loss function" },
+        { "id": "c", "text": "Increases the model's learning rate over time" },
+        { "id": "d", "text": "Splits training data into batches for parallel processing" }
+      ],
+      "correct": ["b"],
+      "explanation": "Gradient descent computes the gradient of the loss with respect to each parameter (direction of steepest ascent) and moves parameters in the opposite direction (steepest descent) by a step proportional to the learning rate. Repeated iterations gradually minimize the loss. Stochastic gradient descent (SGD) uses mini-batches for efficiency. Random search is a different optimization strategy entirely."
+    },
+    {
+      "id": "q96",
+      "topic": "General CS / Logic",
+      "type": "single",
+      "prompt": "What is the result of `0b1011 ^ 0b1100` (XOR of two binary numbers)?",
+      "options": [
+        { "id": "a", "text": "0b0111" },
+        { "id": "b", "text": "0b1000" },
+        { "id": "c", "text": "0b1111" },
+        { "id": "d", "text": "0b0001" }
+      ],
+      "correct": ["a"],
+      "explanation": "XOR (exclusive OR) outputs 1 when bits differ: 1011 XOR 1100 = 0111. Bit by bit: 1^1=0, 0^1=1, 1^0=1, 1^0=1 → 0111. XOR is its own inverse (a^b^b = a), making it useful for swap-without-temp, toggling bits, and simple checksums."
+    },
+    {
+      "id": "q97",
+      "topic": "General CS / Logic",
+      "type": "single",
+      "prompt": "Which design pattern defines a one-to-many dependency so that when one object changes state, all its dependents are notified automatically?",
+      "options": [
+        { "id": "a", "text": "Strategy" },
+        { "id": "b", "text": "Observer" },
+        { "id": "c", "text": "Decorator" },
+        { "id": "d", "text": "Command" }
+      ],
+      "correct": ["b"],
+      "explanation": "The Observer pattern (also called Publish-Subscribe) defines a subject that maintains a list of observers and notifies them when its state changes. This decouples the subject from its observers — the subject doesn't need to know the observers' types. Examples: event listeners in UI frameworks, reactive streams. Strategy encapsulates interchangeable algorithms. Decorator adds behavior dynamically."
+    },
+    {
+      "id": "q98",
+      "topic": "General CS / Logic",
+      "type": "multi",
+      "prompt": "Which of the following statements about IPv4 and IPv6 are TRUE? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "IPv4 uses 32-bit addresses; IPv6 uses 128-bit addresses" },
+        { "id": "b", "text": "IPv4 address space has been effectively exhausted" },
+        { "id": "c", "text": "IPv6 addresses are written as four decimal octets separated by dots" },
+        { "id": "d", "text": "IPv6 supports stateless address autoconfiguration (SLAAC)" }
+      ],
+      "correct": ["a", "b", "d"],
+      "explanation": "IPv4 uses 32 bits (2^32 ≈ 4.3 billion addresses); IPv6 uses 128 bits (2^128 ≈ 3.4×10^38 addresses) (a). The IPv4 global address pool was exhausted at IANA level in 2011; regional registries now allocate from reserves (b). IPv6 addresses are written as eight groups of four hexadecimal digits separated by colons (e.g., 2001:0db8::1), NOT as decimal octets — that format belongs to IPv4 (c is false). SLAAC allows IPv6 hosts to auto-configure addresses without a DHCP server (d)."
+    },
+    {
+      "id": "q99",
+      "topic": "General CS / Logic",
+      "type": "multi",
+      "prompt": "Which of the following expressions evaluate to true given x = 12 (decimal)? (Select all that apply)",
+      "options": [
+        { "id": "a", "text": "x & 4 != 0  (x has the bit at position 2 set)" },
+        { "id": "b", "text": "x & 1 == 0  (x is even)" },
+        { "id": "c", "text": "x >> 2 == 3  (x right-shifted by 2 equals 3)" },
+        { "id": "d", "text": "x | 3 == 12  (x OR 3 equals 12)" }
+      ],
+      "correct": ["a", "b", "c"],
+      "explanation": "12 in binary is 0b1100. (a) 12 & 4 = 0b1100 & 0b0100 = 0b0100 = 4 ≠ 0 → true. (b) 12 & 1 = 0b1100 & 0b0001 = 0 → true (12 is even). (c) 12 >> 2 = 0b1100 >> 2 = 0b0011 = 3 → true. (d) 12 | 3 = 0b1100 | 0b0011 = 0b1111 = 15 ≠ 12 → false."
+    },
+    {
+      "id": "q100",
+      "topic": "General CS / Logic",
+      "type": "single",
+      "prompt": "Which design pattern allows adding new behaviors to objects by wrapping them in objects of decorator classes without modifying the original class?",
+      "options": [
+        { "id": "a", "text": "Adapter" },
+        { "id": "b", "text": "Facade" },
+        { "id": "c", "text": "Decorator" },
+        { "id": "d", "text": "Proxy" }
+      ],
+      "correct": ["c"],
+      "explanation": "The Decorator pattern wraps an object in another object that implements the same interface, adding behavior before or after delegating to the wrapped object. It follows the open/closed principle — extending behavior without modifying the original class. Java's I/O streams (e.g., BufferedReader wrapping FileReader) are a classic example. Adapter converts interfaces; Facade simplifies; Proxy controls access."
+    }
+  ]
+}
